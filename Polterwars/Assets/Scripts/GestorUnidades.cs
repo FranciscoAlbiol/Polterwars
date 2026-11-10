@@ -25,7 +25,7 @@ public class GestorUnidades : MonoBehaviour
 
         Debug.Log(
             "Unidad creada: " + tipo +
-            " | Posición: " + nuevaUnidad.transform.position
+            " | Posiciï¿½n: " + nuevaUnidad.transform.position
         );
 
         return nuevaUnidad;
