@@ -296,6 +296,15 @@ MonoBehaviour:
   highlightRenderer: {fileID: 4829676662145569560}
   mouseHighlight: {fileID: 1251094015284056614}
   terrainType: 0
+  database_array:
+  - tipo: 0
+    data: {fileID: 11400000, guid: 5944f807efa9f7f4da29c4ee5abaf269, type: 2}
+  - tipo: 1
+    data: {fileID: 11400000, guid: 972645ba57d494d41972fecb908d9b26, type: 2}
+  - tipo: 3
+    data: {fileID: 11400000, guid: 5cc5e18f1c47c2d4dadd2309af7f5eda, type: 2}
+  - tipo: 2
+    data: {fileID: 11400000, guid: 18a63d65222be6a48bd2acd45de33790, type: 2}
 --- !u!61 &5173009997114644795
 BoxCollider2D:
   m_ObjectHideFlags: 0
