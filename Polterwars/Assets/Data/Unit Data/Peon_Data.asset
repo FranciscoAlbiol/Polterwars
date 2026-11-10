@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325d46c8731ecb440b6087feb2c03105, type: 3}
   m_Name: Peon_Data
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  nombre: Peon
   tipo: 0
+  imagen: {fileID: 9099666018732180237, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 3
+  coste_por_terreno: []

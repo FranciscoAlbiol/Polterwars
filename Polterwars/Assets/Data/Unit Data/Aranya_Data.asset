@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Aranya_Data
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   tipo: 3
+  imagen: {fileID: -5497404683039575341, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 6
+  coste_por_terreno:
+  - tipo: 0
+    cost: 0

@@ -34,12 +34,12 @@ public class Unidad : MonoBehaviour
             database.Add(tipo_a, data_a);
         }
 
+        sprite.sprite = getImage();
     }
 
     private int ObtenerPuntosMovimiento()
     {
         return database[tipo].puntos_movimiento;
-        return 0;
     }
 
     public void Configurar(UnitType nuevoTipo, Vector2Int nuevaPosicion)
@@ -74,5 +74,13 @@ public class Unidad : MonoBehaviour
             posicion.y,
             0
         );
+    }
+
+    public UnitData ObtenerDatos() {
+        return database[tipo];
+    }
+
+    private Sprite getImage() {
+        return database[tipo].imagen;
     }
 }

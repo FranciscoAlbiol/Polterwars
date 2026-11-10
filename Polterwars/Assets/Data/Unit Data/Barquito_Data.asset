@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325d46c8731ecb440b6087feb2c03105, type: 3}
   m_Name: Barquito_Data
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  nombre: Barquito
   tipo: 1
+  imagen: {fileID: 6666952321490856835, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 5
+  coste_por_terreno: []
