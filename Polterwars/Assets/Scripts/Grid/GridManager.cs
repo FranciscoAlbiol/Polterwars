@@ -10,7 +10,7 @@ public class GridManager : MonoBehaviour
     private Dictionary<Vector2, Tile> tiles;
     
 
-    void Start() {
+    void Awake() {
         GenerateGrid();
     }
 
@@ -20,7 +20,24 @@ public class GridManager : MonoBehaviour
             for (int j = 0; j < height; j++) {
                 var spawnedTile = Instantiate(tilePrefab, new Vector3(i, j), Quaternion.identity);
                 spawnedTile.name = $"Tile {i}{j}";
+                //prueba
+                TerrainType terreno = TerrainType.Suelo;
 
+                if (i == 2 && j == 2)
+                {
+                    terreno = TerrainType.Caja;
+                }
+                else if (i == 3 && j == 2)
+                {
+                    terreno = TerrainType.Alfombra;
+                }
+                else if (i == 2 && j == 3)
+                {
+                    terreno = TerrainType.Gotera;
+                }
+
+                spawnedTile.SetTerrain(terreno);
+                //prueba
                 bool isOffset = (i + j) % 2 == 1;
                 spawnedTile.setTileColor(isOffset);
 
@@ -38,5 +55,10 @@ public class GridManager : MonoBehaviour
 
         print("No hay una celda en esa posicion");
         return null;
+    }
+
+    public List<Tile> GetAllTiles()
+    {
+        return new List<Tile>(tiles.Values);
     }
 }

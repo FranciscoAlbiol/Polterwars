@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51bfe554b6df84599f48e0e01b1636, type: 3}
+  m_Name: Caja_Data
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainData
+  tipo: 3
+  color_normal: {r: 0.6301887, g: 0.3798926, b: 0.24137412, a: 1}
+  color_offset: {r: 0.6313726, g: 0.3803922, b: 0.24313727, a: 1}
