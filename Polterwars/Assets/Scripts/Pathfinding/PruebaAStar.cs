@@ -41,7 +41,7 @@ public class PruebaAStar : MonoBehaviour
         }
         else
         {
-            Debug.Log("No se ha encontrado ning�n camino.");
+            Debug.Log("No se ha encontrado ningun camino.");
         }
     }
 }

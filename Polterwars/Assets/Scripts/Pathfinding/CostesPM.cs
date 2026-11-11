@@ -7,22 +7,20 @@ public static class CostesPM
 
     public static int ObtenerCoste(UnitData unidad_data, TerrainType terreno)
     {
-        // 1. Guard against a null dictionary
         if (unidad_data.coste_por_terreno == null)
         {
-            Debug.LogError($"El diccionario 'coste_por_terreno' en la unidad {unidad_data.tipo} es NULL.");
-            return -1; // Or whatever fallback movement cost makes sense
+            Debug.Log($"El diccionario 'coste_por_terreno' en la unidad {unidad_data.tipo} es NULL.");
+            return -1;
         }
 
-        // 2. Guard against missing terrain keys using TryGetValue
         if (unidad_data.coste_por_terreno.TryGetValue(terreno, out int coste))
         {
             return coste;
         }
         else
         {
-            Debug.LogWarning($"El terreno {terreno} no está definido en el diccionario de costes de la unidad.");
-            return -1; // Fallback cost
+            Debug.Log($"El terreno {terreno} no está definido en el diccionario de costes de la unidad.");
+            return -1; 
         }
 
         /*switch (unidad)

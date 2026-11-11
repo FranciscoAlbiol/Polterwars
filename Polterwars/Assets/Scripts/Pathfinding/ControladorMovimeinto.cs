@@ -127,7 +127,7 @@ public class ControladorMovimiento : MonoBehaviour
         MostrarRadio();
 
         Debug.Log("Unidad seleccionada: " + unidadSeleccionada.Tipo);
-        Debug.Log("Radio de acci�n calculado.");
+        Debug.Log("Radio de accion calculado.");
     }
 
     private void MostrarRadio()

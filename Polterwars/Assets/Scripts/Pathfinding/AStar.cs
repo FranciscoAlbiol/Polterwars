@@ -17,9 +17,6 @@ public static class AStar
 
         NodoGrid nodoDestino = grid.ObtenerNodo(destino);
 
-        UnitData data = unidad.ObtenerDatos();
-        Debug.Log("DATOS A ENVIAR EN STAR: " + data);
-
         if (nodoDestino == null ||
             CostesPM.ObtenerCoste(unidad.ObtenerDatos(), nodoDestino.Terreno) < 0)
         {

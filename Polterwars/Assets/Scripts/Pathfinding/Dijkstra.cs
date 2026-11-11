@@ -44,19 +44,11 @@ public static class Dijkstra
 
                 foreach (NodoGrid vecino in vecinos)
                 {
-                    //Aqui, unidad.ObtenerDatos no es null
-                    Debug.Log("PUNTOS MOVIMIENTO: " + data.puntos_movimiento);
-                    Debug.Log("TIPO: " + data.tipo);
 
-                    
-
-                    //ESTO ES NULL ?????
                     int costeMovimiento = CostesPM.ObtenerCoste(
                         data,
                         vecino.Terreno
                     );
-
-                    Debug.Log("COSTE DE MOVIMIENTO: " + costeMovimiento);
 
                     if (costeMovimiento >= 0)
                     {
@@ -81,7 +73,6 @@ public static class Dijkstra
                 }
             }
         }
-        Debug.Log("RESULTADO DE DIJSKTRA: " + resultado);
         return resultado;
     }
 }
