@@ -7,7 +7,7 @@ public class PruebaAStar : MonoBehaviour
     [SerializeField] private GridManager gridManager;
     [SerializeField] private Vector2Int posicionInicial;
     [SerializeField] private Vector2Int posicionDestino;
-    [SerializeField] private UnitType unidad;
+    [SerializeField] private Unidad unidad;
 
     private GridDatos gridDatos;
 
@@ -41,7 +41,7 @@ public class PruebaAStar : MonoBehaviour
         }
         else
         {
-            Debug.Log("No se ha encontrado ningún camino.");
+            Debug.Log("No se ha encontrado ningun camino.");
         }
     }
 }

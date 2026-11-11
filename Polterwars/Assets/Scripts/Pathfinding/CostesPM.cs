@@ -1,9 +1,29 @@
+using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 public static class CostesPM
 {
-    public static int ObtenerCoste(UnitType unidad, TerrainType terreno)
+
+    public static int ObtenerCoste(UnitData unidad_data, TerrainType terreno)
     {
-        switch (unidad)
+        if (unidad_data.coste_por_terreno == null)
+        {
+            Debug.Log($"El diccionario 'coste_por_terreno' en la unidad {unidad_data.tipo} es NULL.");
+            return -1;
+        }
+
+        if (unidad_data.coste_por_terreno.TryGetValue(terreno, out int coste))
+        {
+            return coste;
+        }
+        else
+        {
+            Debug.Log($"El terreno {terreno} no está definido en el diccionario de costes de la unidad.");
+            return -1; 
+        }
+
+        /*switch (unidad)
         {
             case UnitType.Peon:
             case UnitType.Explorador:
@@ -58,6 +78,6 @@ public static class CostesPM
                 break;
         }
 
-        return -1;
+        return -1;*/
     }
 }

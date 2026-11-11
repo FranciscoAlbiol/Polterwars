@@ -4,7 +4,7 @@ public class PruebaDijkstra : MonoBehaviour
 {
     [SerializeField] private GridManager gridManager;
     [SerializeField] private Vector2Int posicionInicial;
-    [SerializeField] private UnitType unidad;
+    [SerializeField] private Unidad unidad;
     [SerializeField] private int puntosMovimiento;
 
     private GridDatos gridDatos;

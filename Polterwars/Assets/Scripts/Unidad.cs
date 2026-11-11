@@ -1,53 +1,46 @@
-
+using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Unidad : MonoBehaviour
 {
+    [Serializable]
+    public struct ListElement {
+        public UnitType tipo;
+        public UnitData data;
+    }
+
     [SerializeField] private UnitType tipo;
     [SerializeField] private Vector2Int posicion;
+    [SerializeField] private ListElement[] database_array;
 
     public UnitType Tipo => tipo;
     public Vector2Int Posicion => posicion;
     public int PuntosMovimiento => ObtenerPuntosMovimiento();
 
+    private Dictionary<UnitType, UnitData> database;
+    
+
     private void Start()
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-
         sprite.sortingOrder = 1;
 
-    }
+        //inicializa el diccionario (unity no permite diccionarios en el inspector)
+        database = new Dictionary<UnitType, UnitData>();
+        foreach(ListElement unit in database_array) {
+            UnitType tipo_a = unit.tipo;
+            UnitData data_a = unit.data;
 
-    private int ObtenerPuntosMovimiento()
-    {
-        switch (tipo)
-        {
-            case UnitType.Peon:
-                return 3;
-
-            case UnitType.Barquito:
-                return 5;
-
-            case UnitType.Explorador:
-                return 8;
-
-            case UnitType.Aranya:
-                return 6;
-
-            case UnitType.Bailarina:
-                return 4;
-
-            case UnitType.Mono:
-                return 4;
-
-            case UnitType.Oso:
-                return 3;
-
-            case UnitType.Vudu:
-                return 4;
+            database.Add(tipo_a, data_a);
         }
 
-        return 0;
+        sprite.sprite = getImage();
+    }
+
+    public int ObtenerPuntosMovimiento()
+    {
+        return database[tipo].puntos_movimiento;
     }
 
     public void Configurar(UnitType nuevoTipo, Vector2Int nuevaPosicion)
@@ -82,5 +75,17 @@ public class Unidad : MonoBehaviour
             posicion.y,
             0
         );
+    }
+
+    public UnitData ObtenerDatos() {
+        return database[tipo];
+    }
+
+    public UnitType ObtenerTipo() {
+        return tipo;
+    }
+
+    private Sprite getImage() {
+        return database[tipo].imagen;
     }
 }

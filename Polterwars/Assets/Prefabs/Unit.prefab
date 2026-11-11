@@ -128,3 +128,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unidad
   tipo: 0
   posicion: {x: 0, y: 0}
+  database_array:
+  - tipo: 0
+    data: {fileID: 11400000, guid: 16ce4236720f5054095032b13da596fb, type: 2}
+  - tipo: 1
+    data: {fileID: 11400000, guid: a33c17aef2b64c74fadef88b1d717906, type: 2}
+  - tipo: 2
+    data: {fileID: 11400000, guid: 77b1021447b29b6419c4c1024c23af94, type: 2}
+  - tipo: 3
+    data: {fileID: 11400000, guid: 3d3ec2aa83364da4c92720e4e38088ee, type: 2}
+  - tipo: 4
+    data: {fileID: 11400000, guid: f4a19809fc9dd88418b66c037f258136, type: 2}
+  - tipo: 5
+    data: {fileID: 11400000, guid: 6b4838678c0c9cd4cb20bf500f31d007, type: 2}
+  - tipo: 6
+    data: {fileID: 11400000, guid: 95318aefc496e9e43ac7e01884998cc1, type: 2}
+  - tipo: 7
+    data: {fileID: 11400000, guid: 834bf25ea8efb0a47ab4b91f9f3f08ab, type: 2}

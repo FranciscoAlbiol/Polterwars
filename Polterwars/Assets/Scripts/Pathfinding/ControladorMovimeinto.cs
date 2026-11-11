@@ -37,7 +37,7 @@ public class ControladorMovimiento : MonoBehaviour
                 gridDatos,
                 unidadSeleccionada.Posicion,
                 destino,
-                unidadSeleccionada.Tipo
+                unidadSeleccionada
             );
 
             foreach (Vector2Int posicion in caminoActual)
@@ -55,11 +55,12 @@ public class ControladorMovimiento : MonoBehaviour
 
     private void AlSalirDeCasilla(Tile tile)
     {
-        Debug.Log("Raton fuera de la casilla: " + tile.name);
+        //Debug.Log("Raton fuera de la casilla: " + tile.name);
     }
 
     private void AlHacerClickEnCasilla(Tile tile)
     {
+        print("Seleccionando casilla");
         if (unidadSeleccionada == null)
             return;
 
@@ -68,6 +69,7 @@ public class ControladorMovimiento : MonoBehaviour
             Mathf.RoundToInt(tile.transform.position.y)
         );
 
+        print("Destino: " + destino);
         
         if (!radioActual.EsAlcanzable(destino))
             return;
@@ -76,7 +78,7 @@ public class ControladorMovimiento : MonoBehaviour
             gridDatos,
             unidadSeleccionada.Posicion,
             destino,
-            unidadSeleccionada.Tipo
+            unidadSeleccionada
         );
 
         if (camino.Count == 0)
@@ -89,7 +91,7 @@ public class ControladorMovimiento : MonoBehaviour
         radioActual = Dijkstra.CalcularRadio(
             gridDatos,
             unidadSeleccionada.Posicion,
-            unidadSeleccionada.Tipo,
+            unidadSeleccionada,
             unidadSeleccionada.PuntosMovimiento
         );
 
@@ -116,14 +118,16 @@ public class ControladorMovimiento : MonoBehaviour
         radioActual = Dijkstra.CalcularRadio(
             gridDatos,
             unidadSeleccionada.Posicion,
-            unidadSeleccionada.Tipo,
+            unidadSeleccionada,
             unidadSeleccionada.PuntosMovimiento
         );
+
+        print("Radio actual: " + radioActual);
 
         MostrarRadio();
 
         Debug.Log("Unidad seleccionada: " + unidadSeleccionada.Tipo);
-        Debug.Log("Radio de acción calculado.");
+        Debug.Log("Radio de accion calculado.");
     }
 
     private void MostrarRadio()

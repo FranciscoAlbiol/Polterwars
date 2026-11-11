@@ -7,7 +7,7 @@ public static class Dijkstra
     public static RadioAccion CalcularRadio(
         GridDatos grid,
         Vector2Int origen,
-        UnitType unidad,
+        Unidad unidad,
         int puntosMovimiento)
     {
         RadioAccion resultado = new RadioAccion();
@@ -40,11 +40,13 @@ public static class Dijkstra
                 resultado.AnadirCasilla(actual, costeActual);
 
                 List<NodoGrid> vecinos = grid.ObtenerVecinos(actual);
+                UnitData data = unidad.ObtenerDatos();
 
                 foreach (NodoGrid vecino in vecinos)
                 {
+
                     int costeMovimiento = CostesPM.ObtenerCoste(
-                        unidad,
+                        data,
                         vecino.Terreno
                     );
 
@@ -71,7 +73,6 @@ public static class Dijkstra
                 }
             }
         }
-
         return resultado;
     }
 }

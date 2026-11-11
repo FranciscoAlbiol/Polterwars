@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325d46c8731ecb440b6087feb2c03105, type: 3}
+  m_Name: Aranya_Data
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  tipo: 3
+  imagen: {fileID: -5497404683039575341, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
+  puntos_movimiento: 6
+  coste_por_terreno_array:
+  - tipo: 0
+    cost: 2
+  - tipo: 1
+    cost: 1
+  - tipo: 2
+    cost: 3
+  - tipo: 3
+    cost: 2
