@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using System;
+using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TurnManager : MonoBehaviour
         Player,
         AI
     }
+
+    public TextMeshProUGUI textMeshPro;
 
     public static TurnManager Instance { get; private set; }
 
@@ -33,7 +36,7 @@ public class TurnManager : MonoBehaviour
         // Solo permitir finalizar el turno de la IA con Space
         if (IsAITurn() && Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("La IA ha terminado su turno.");
+            textMeshPro.text = "La IA ha terminado su turno.";
 
             EndTurn();
         }
@@ -73,17 +76,16 @@ public class TurnManager : MonoBehaviour
             remainingPlayerActions = playerActionsPerTurn;
         }
 
-        Debug.Log("================================");
-        Debug.Log("RONDA: " + currentRound);
-        Debug.Log("TURNO: " + currentTurn);
+        textMeshPro.text = "RONDA: " + currentRound;
+        textMeshPro.text = "TURNO: " + currentTurn;
 
         if (currentTurn == TurnType.Player)
         {
-            Debug.Log("Acciones disponibles: "
-                + remainingPlayerActions);
+            textMeshPro.text = "Acciones disponibles: "
+                + remainingPlayerActions;
         }
 
-        Debug.Log("================================");
+        
 
         OnTurnChanged?.Invoke(currentTurn, currentRound);
     }
@@ -109,26 +111,26 @@ public class TurnManager : MonoBehaviour
         // Comprobar que es el turno del jugador
         if (!IsPlayerTurn())
         {
-            Debug.Log("No es el turno del jugador.");
+            textMeshPro.text = "No es el turno del jugador.";
             return;
         }
 
         // Comprobar que quedan acciones
         if (remainingPlayerActions <= 0)
         {
-            Debug.Log("No quedan acciones disponibles.");
+            textMeshPro.text = "No quedan acciones disponibles.";
             return;
         }
 
         // Consumir una acción
         remainingPlayerActions--;
 
-        Debug.Log("Acción realizada. Acciones restantes: "
-            + remainingPlayerActions);
+        textMeshPro.text = "Acción realizada. Acciones restantes: "
+            + remainingPlayerActions;
 
         // Si no quedan acciones, finalizar turno
         if (remainingPlayerActions == 0){
-            Debug.Log("El jugador ha agotado sus acciones.");
+            textMeshPro.text = "El jugador ha agotado sus acciones.";
             EndTurn();
         }
     }
