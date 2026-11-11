@@ -44,7 +44,7 @@ public class Tile : MonoBehaviour
     }
 
     public void setTileColor(bool isOffset) {
-        print("Tipo de terreno: " + terrainType);
+        //print("Tipo de terreno: " + terrainType);
         TerrainData data = database[terrainType];
         renderer.color = isOffset ? data.color_offset : data.color_normal;
     }
@@ -53,14 +53,12 @@ public class Tile : MonoBehaviour
     {
         mouseHighlight.SetActive(true);
         AlEntrarRaton?.Invoke(this);
-        print("mouse entered");
     }
 
     void OnMouseExit()
     {
         mouseHighlight.SetActive(false);
         AlSalirRaton?.Invoke(this);
-        print("mouse exited");
     }
 
     public void SetHighlight(bool activo)

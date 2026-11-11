@@ -19,6 +19,7 @@ public class Unidad : MonoBehaviour
     public int PuntosMovimiento => ObtenerPuntosMovimiento();
 
     private Dictionary<UnitType, UnitData> database;
+    
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class Unidad : MonoBehaviour
         sprite.sprite = getImage();
     }
 
-    private int ObtenerPuntosMovimiento()
+    public int ObtenerPuntosMovimiento()
     {
         return database[tipo].puntos_movimiento;
     }
@@ -78,6 +79,10 @@ public class Unidad : MonoBehaviour
 
     public UnitData ObtenerDatos() {
         return database[tipo];
+    }
+
+    public UnitType ObtenerTipo() {
+        return tipo;
     }
 
     private Sprite getImage() {

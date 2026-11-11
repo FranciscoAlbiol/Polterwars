@@ -7,7 +7,7 @@ public static class AStar
         GridDatos grid,
         Vector2Int origen,
         Vector2Int destino,
-        UnitType unidad)
+        Unidad unidad)
     {
         List<Vector2Int> pendientes = new List<Vector2Int>();
         List<Vector2Int> visitados = new List<Vector2Int>();
@@ -17,8 +17,11 @@ public static class AStar
 
         NodoGrid nodoDestino = grid.ObtenerNodo(destino);
 
+        UnitData data = unidad.ObtenerDatos();
+        Debug.Log("DATOS A ENVIAR EN STAR: " + data);
+
         if (nodoDestino == null ||
-            CostesPM.ObtenerCoste(unidad, nodoDestino.Terreno) < 0)
+            CostesPM.ObtenerCoste(unidad.ObtenerDatos(), nodoDestino.Terreno) < 0)
         {
             return new List<Vector2Int>();
         }
@@ -57,7 +60,7 @@ public static class AStar
                 Vector2Int posicionVecina = vecino.Posicion;
 
                 int costeMovimiento = CostesPM.ObtenerCoste(
-                    unidad,
+                    unidad.ObtenerDatos(),
                     vecino.Terreno
                 );
 
