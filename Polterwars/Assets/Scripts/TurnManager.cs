@@ -123,7 +123,7 @@ public class TurnManager : MonoBehaviour
         }
 
         // Consumir una acción
-        remainingPlayerActions--;
+        remainingPlayerActions-=1;
 
         textMeshPro.text = "Acción realizada. Acciones restantes: "
             + remainingPlayerActions;

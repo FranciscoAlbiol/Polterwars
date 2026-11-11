@@ -6,6 +6,8 @@ public class GestorUnidades : MonoBehaviour
 {
     [SerializeField] private Unidad prefabUnidad;
 
+    
+
     private List<Unidad> unidades = new List<Unidad>();
 
     private void Start()
@@ -20,6 +22,7 @@ public class GestorUnidades : MonoBehaviour
         Unidad nuevaUnidad = Instantiate(prefabUnidad);
 
         nuevaUnidad.Configurar(tipo, posicion);
+
 
         unidades.Add(nuevaUnidad);
 
