@@ -20,6 +20,8 @@ public class Unidad : MonoBehaviour
     public int PuntosMovimiento => ObtenerPuntosMovimiento();
 
     private Dictionary<UnitType, UnitData> database;
+
+   
     
 
     private void Start()
@@ -69,6 +71,7 @@ public class Unidad : MonoBehaviour
 
     public void MoverA(Vector2Int nuevaPosicion)
     {
+        
         posicion = nuevaPosicion;
 
         transform.position = new Vector3(
@@ -76,6 +79,7 @@ public class Unidad : MonoBehaviour
             posicion.y,
             0
         );
+        
     }
 
     public UnitData ObtenerDatos() {
