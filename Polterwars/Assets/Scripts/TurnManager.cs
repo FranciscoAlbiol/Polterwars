@@ -2,14 +2,16 @@
 using UnityEngine;
 using System;
 
-public class TurnManager : MonoBehaviour
-{
-    // Tipos de turno disponibles
+// Tipos de turno disponibles
     public enum TurnType
     {
+        None,
         Player,
         AI
     }
+
+public class TurnManager : MonoBehaviour
+{
 
     public static TurnManager Instance { get; private set; }
 
@@ -70,6 +72,7 @@ public class TurnManager : MonoBehaviour
         // Si comienza el turno del jugador, recuperar sus acciones
         if (currentTurn == TurnType.Player)
         {
+            gameObject.SendMessage("crear_materiales");
             remainingPlayerActions = playerActionsPerTurn;
         }
 

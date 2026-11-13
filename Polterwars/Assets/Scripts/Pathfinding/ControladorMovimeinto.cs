@@ -85,6 +85,8 @@ public class ControladorMovimiento : MonoBehaviour
             return;
 
         unidadSeleccionada.MoverA(destino);
+        bool puedeTomar = gridDatos.Puede_Tomar_Refineria(destino, unidadSeleccionada.owner);
+        gameObject.SendMessage("PerformPlayerAction");
 
         LimpiarResaltados();
 

@@ -34,7 +34,6 @@ public class Tile : MonoBehaviour
             TerrainData data_a = terrain.data;
 
             database.Add(tipo_a, data_a);
-            print("Added: " + tipo_a);  
         }
     }
 

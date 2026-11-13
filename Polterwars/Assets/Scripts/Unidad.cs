@@ -16,6 +16,7 @@ public class Unidad : MonoBehaviour
 
     public UnitType Tipo => tipo;
     public Vector2Int Posicion => posicion;
+    public TurnType owner = TurnType.Player; //se inicializara como dios manda al crearlas en las fabricas
     public int PuntosMovimiento => ObtenerPuntosMovimiento();
 
     private Dictionary<UnitType, UnitData> database;

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GridDatos
 {
@@ -23,6 +24,16 @@ public class GridDatos
     public bool EstaDentroDelGrid(Vector2Int posicion)
     {
         return gridManager.GetTile(posicion) != null;
+    }
+
+    public bool Puede_Tomar_Refineria(Vector2 posicion, TurnType owner) {
+        foreach (Refineria refineria in gridManager.refinerias) {
+            if (refineria.radio_toma.Contains(posicion)) {
+                refineria.tomar_refineria(owner);
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<NodoGrid> ObtenerVecinos(Vector2Int posicion)
