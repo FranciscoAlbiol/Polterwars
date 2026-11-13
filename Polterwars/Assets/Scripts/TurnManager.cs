@@ -3,18 +3,21 @@ using UnityEngine;
 using System;
 using TMPro;
 
-public class TurnManager : MonoBehaviour
-{
-    // Tipos de turno disponibles
+// Tipos de turno disponibles
     public enum TurnType
     {
+        None,
         Player,
         AI
     }
 
+public class TurnManager : MonoBehaviour
+{
+
     public TextMeshProUGUI textMeshPro;
 
     public static TurnManager Instance { get; private set; }
+    [SerializeField] private GridManager grid_manager;
 
     [Header("Turn Settings")]
     [SerializeField] private TurnType currentTurn = TurnType.Player;
@@ -73,6 +76,9 @@ public class TurnManager : MonoBehaviour
         // Si comienza el turno del jugador, recuperar sus acciones
         if (currentTurn == TurnType.Player)
         {
+            foreach (Refineria refineria in grid_manager.refinerias) {
+                refineria.crear_materiales();
+            }
             remainingPlayerActions = playerActionsPerTurn;
         }
 

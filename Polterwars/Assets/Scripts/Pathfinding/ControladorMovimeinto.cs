@@ -89,6 +89,7 @@ public class ControladorMovimiento : MonoBehaviour
 
        
         unidadSeleccionada.MoverA(destino);
+        bool puedeTomar = gridDatos.Puede_Tomar_Refineria(destino, unidadSeleccionada.owner);
         turnManager.PerformPlayerAction();
 
 
