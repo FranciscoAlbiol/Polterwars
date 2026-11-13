@@ -11,6 +11,8 @@ public class ControladorMovimiento : MonoBehaviour
 
     private Unidad unidadSeleccionada;
     private List<Vector2Int> caminoActual = new List<Vector2Int>();
+
+    public TurnManager turnManager;
     
 
     private void Start()
@@ -61,7 +63,7 @@ public class ControladorMovimiento : MonoBehaviour
     private void AlHacerClickEnCasilla(Tile tile)
     {
         print("Seleccionando casilla");
-        if (unidadSeleccionada == null)
+        if (unidadSeleccionada == null || turnManager.IsAITurn())
             return;
 
         Vector2Int destino = new Vector2Int(
@@ -81,10 +83,15 @@ public class ControladorMovimiento : MonoBehaviour
             unidadSeleccionada
         );
 
-        if (camino.Count == 0)
+
+        if (camino.Count -1 <=0)
             return;
 
+       
         unidadSeleccionada.MoverA(destino);
+        turnManager.PerformPlayerAction();
+
+
 
         LimpiarResaltados();
 
@@ -112,6 +119,8 @@ public class ControladorMovimiento : MonoBehaviour
 
     public void SeleccionarUnidad(Unidad unidad)
     {
+        
+
         LimpiarResaltados();
         unidadSeleccionada = unidad;
 
