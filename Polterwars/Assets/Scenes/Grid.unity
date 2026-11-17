@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestorUnidades
   prefabUnidad: {fileID: 5917224897041802387, guid: d073289e51f4f68469fafde69a9fb584, type: 3}
+  grid_manager: {fileID: 1377928868}
 --- !u!4 &913378508
 Transform:
   m_ObjectHideFlags: 0

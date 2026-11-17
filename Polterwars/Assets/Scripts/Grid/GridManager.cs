@@ -40,6 +40,7 @@ public class GridManager : MonoBehaviour
                     terreno = TerrainType.Gotera;
                 }
 
+                
                 if (j >= height / 2)
                 {
                     spawnedTile.Tapar(true);
@@ -64,7 +65,7 @@ public class GridManager : MonoBehaviour
 
         for(int i = 0; i <= random_number; i++) {
             Tile tile = get_random_tile();
-            while(tile.terrainType != TerrainType.Suelo) {
+            while(tile.terrainType != TerrainType.Suelo || tile.taken) {
                 tile = get_random_tile();
             }
 
@@ -73,9 +74,17 @@ public class GridManager : MonoBehaviour
                 tile.transform.position.y
             );
 
+            tile.taken = true;
             var spawnedRefineria = Instantiate(refineria_prefab, posicion, Quaternion.identity);
         }
 
+    }
+
+    public void Ocupar_Posicion(Vector2Int posicion) {
+        Vector2 posicion_v2 = posicion;
+
+        Tile casilla_ocupada = tiles[posicion_v2];
+        casilla_ocupada.taken = true;
     }
 
     public Tile GetTile(Vector2 pos) {

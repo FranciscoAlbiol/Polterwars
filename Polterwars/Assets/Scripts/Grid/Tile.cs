@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour
     public event Action<Tile> AlHacerClick;
 
     public TerrainType terrainType;
+    public bool taken = false;
     [SerializeField] private ListElement[] database_array;
     private Dictionary<TerrainType, TerrainData> database;
     private bool tapado = false;

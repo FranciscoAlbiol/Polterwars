@@ -389,6 +389,7 @@ MonoBehaviour:
   mouseHighlight: {fileID: 1251094015284056614}
   niebla: {fileID: 7431928777163797042}
   terrainType: 0
+  taken: 0
   database_array:
   - tipo: 0
     data: {fileID: 11400000, guid: 5944f807efa9f7f4da29c4ee5abaf269, type: 2}
