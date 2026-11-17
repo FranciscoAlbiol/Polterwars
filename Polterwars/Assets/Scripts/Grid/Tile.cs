@@ -16,6 +16,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject highlight;
     [SerializeField] private SpriteRenderer highlightRenderer;
     [SerializeField] private GameObject mouseHighlight;
+    [SerializeField] private GameObject niebla;
 
     public event Action<Tile> AlEntrarRaton;
     public event Action<Tile> AlSalirRaton;
@@ -24,6 +25,7 @@ public class Tile : MonoBehaviour
     public TerrainType terrainType;
     [SerializeField] private ListElement[] database_array;
     private Dictionary<TerrainType, TerrainData> database;
+    private bool tapado = false;
 
     private void Awake()
     {
@@ -73,5 +75,11 @@ public class Tile : MonoBehaviour
     private void OnMouseDown()
     {
         AlHacerClick?.Invoke(this);
+    }
+
+    public void Tapar (bool tapa)
+    {
+        tapado = tapa;
+        niebla.SetActive(tapado);
     }
 }
