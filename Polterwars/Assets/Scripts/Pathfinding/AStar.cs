@@ -18,7 +18,8 @@ public static class AStar
         NodoGrid nodoDestino = grid.ObtenerNodo(destino);
 
         if (nodoDestino == null ||
-            CostesPM.ObtenerCoste(unidad.ObtenerDatos(), nodoDestino.Terreno) < 0)
+            CostesPM.ObtenerCoste(unidad.ObtenerDatos(), nodoDestino.Terreno) < 0 ||
+            nodoDestino.Ocupado)
         {
             return new List<Vector2Int>();
         }

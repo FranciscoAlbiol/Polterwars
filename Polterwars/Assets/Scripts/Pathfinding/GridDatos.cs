@@ -18,7 +18,7 @@ public class GridDatos
         if (tile == null)
             return null;
 
-        return new NodoGrid(posicion, tile.terrainType);
+        return new NodoGrid(posicion, tile.terrainType, tile.taken);
     }
 
     public bool EstaDentroDelGrid(Vector2Int posicion)
