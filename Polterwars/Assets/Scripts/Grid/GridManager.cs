@@ -40,6 +40,11 @@ public class GridManager : MonoBehaviour
                     terreno = TerrainType.Gotera;
                 }
 
+                if (j >= height / 2)
+                {
+                    spawnedTile.Tapar(true);
+                }
+
                 spawnedTile.SetTerrain(terreno);
                 //prueba
                 bool isOffset = (i + j) % 2 == 1;

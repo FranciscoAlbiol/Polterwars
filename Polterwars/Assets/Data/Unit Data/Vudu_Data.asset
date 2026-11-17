@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vudu_Data
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   tipo: 7
-  imagen: {fileID: 0}
+  imagen: {fileID: 7603631755599358121, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 4
   coste_por_terreno_array:
   - tipo: 0
