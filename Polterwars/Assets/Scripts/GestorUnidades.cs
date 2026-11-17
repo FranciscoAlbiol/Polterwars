@@ -5,8 +5,7 @@ using UnityEngine;
 public class GestorUnidades : MonoBehaviour
 {
     [SerializeField] private Unidad prefabUnidad;
-
-    
+    [SerializeField] private GridManager grid_manager;
 
     private List<Unidad> unidades = new List<Unidad>();
 
@@ -22,14 +21,14 @@ public class GestorUnidades : MonoBehaviour
         Unidad nuevaUnidad = Instantiate(prefabUnidad);
 
         nuevaUnidad.Configurar(tipo, posicion);
-
-
         unidades.Add(nuevaUnidad);
 
         Debug.Log(
             "Unidad creada: " + tipo +
             " | Posici�n: " + nuevaUnidad.transform.position
         );
+
+        grid_manager.Ocupar_Posicion(posicion);
 
         return nuevaUnidad;
     }
