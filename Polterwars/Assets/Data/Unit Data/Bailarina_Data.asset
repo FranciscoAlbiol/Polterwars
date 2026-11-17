@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bailarina_Data
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   tipo: 4
-  imagen: {fileID: 0}
+  imagen: {fileID: -5691995438344793314, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 3
   coste_por_terreno_array:
   - tipo: 0

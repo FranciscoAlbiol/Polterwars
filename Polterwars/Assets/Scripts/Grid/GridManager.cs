@@ -41,6 +41,10 @@ public class GridManager : MonoBehaviour
                 }
 
                 
+                if (j >= height / 2)
+                {
+                    spawnedTile.Tapar(true);
+                }
 
                 spawnedTile.SetTerrain(terreno);
                 //prueba

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mono_Data
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   tipo: 5
-  imagen: {fileID: 0}
+  imagen: {fileID: -3275164377506620976, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 4
   coste_por_terreno_array:
   - tipo: 0
