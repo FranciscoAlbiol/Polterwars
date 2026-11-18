@@ -6,7 +6,10 @@ public class Task
 {
     public List<Task> hijos;
 
-    public void add_hijos(Task hijo) {
-        hijos.Add(hijo);
+    public virtual void create_node() { }
+    public virtual void add_hijos() { }
+
+    public virtual bool run() {
+        return true;
     }
 }
