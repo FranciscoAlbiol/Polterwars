@@ -46,10 +46,11 @@ public class Unidad : MonoBehaviour
         return database[tipo].puntos_movimiento;
     }
 
-    public void Configurar(UnitType nuevoTipo, Vector2Int nuevaPosicion)
+    public void Configurar(UnitType nuevoTipo, Vector2Int nuevaPosicion, TurnType nuevo_owner)
     {
         tipo = nuevoTipo;
         posicion = nuevaPosicion;
+        owner = nuevo_owner;
 
         transform.position = new Vector3(
             posicion.x,
