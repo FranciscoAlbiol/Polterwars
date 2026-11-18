@@ -11,21 +11,22 @@ public class GestorUnidades : MonoBehaviour
 
     private void Start()
     {
-        CrearUnidad(UnitType.Peon, new Vector2Int(1, 1));
-        CrearUnidad(UnitType.Barquito, new Vector2Int(3, 1));
-        CrearUnidad(UnitType.Explorador, new Vector2Int(5, 1));
+        CrearUnidad(UnitType.Peon, new Vector2Int(1, 1), TurnType.Player);
+        CrearUnidad(UnitType.Barquito, new Vector2Int(3, 1), TurnType.Player);
+        CrearUnidad(UnitType.Explorador, new Vector2Int(5, 1), TurnType.Player);
+        
         Debug.Log("Unidades creadas: " + unidades.Count);
     }
-    public Unidad CrearUnidad(UnitType tipo, Vector2Int posicion)
+    public Unidad CrearUnidad(UnitType tipo, Vector2Int posicion, TurnType duenyo)
     {
         Unidad nuevaUnidad = Instantiate(prefabUnidad);
 
-        nuevaUnidad.Configurar(tipo, posicion);
+        nuevaUnidad.Configurar(tipo, posicion, duenyo);
         unidades.Add(nuevaUnidad);
 
         Debug.Log(
             "Unidad creada: " + tipo +
-            " | Posici�n: " + nuevaUnidad.transform.position
+            " | Posicion: " + nuevaUnidad.transform.position
         );
 
         grid_manager.Ocupar_Posicion(posicion);

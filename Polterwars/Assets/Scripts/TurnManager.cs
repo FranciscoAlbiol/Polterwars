@@ -18,6 +18,7 @@ public class TurnManager : MonoBehaviour
 
     public static TurnManager Instance { get; private set; }
     [SerializeField] private GridManager grid_manager;
+    [SerializeField] private IA_Turn_Controller ia_turn;
 
     [Header("Turn Settings")]
     [SerializeField] private TurnType currentTurn = TurnType.Player;
@@ -79,19 +80,22 @@ public class TurnManager : MonoBehaviour
             foreach (Refineria refineria in grid_manager.refinerias) {
                 refineria.crear_materiales();
             }
+
             remainingPlayerActions = playerActionsPerTurn;
+            textMeshPro.text = "Acciones disponibles: "
+                + remainingPlayerActions;
+        }
+
+        else if (currentTurn == TurnType.AI)
+        {
+            ia_turn.make_action();
         }
 
         textMeshPro.text = "RONDA: " + currentRound;
         textMeshPro.text = "TURNO: " + currentTurn;
 
-        if (currentTurn == TurnType.Player)
-        {
-            textMeshPro.text = "Acciones disponibles: "
-                + remainingPlayerActions;
-        }
-
         
+
 
         OnTurnChanged?.Invoke(currentTurn, currentRound);
     }
