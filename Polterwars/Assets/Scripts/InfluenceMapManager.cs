@@ -1,0 +1,168 @@
+
+using UnityEngine;
+using System.Collections.Generic;
+
+public class InfluenceMapManager : MonoBehaviour
+{
+    [SerializeField] private GridManager gridManager;
+    [SerializeField] private Color aiInfluenceColor = Color.red;
+
+    private const int MAX_INFLUENCE_DISTANCE = 4;
+
+    private Dictionary<Tile, float> playerInfluence;
+    private Dictionary<Tile, float> aiInfluence;
+
+    private List<Unidad> units;
+
+    private void Start()
+    {
+
+    }
+
+    public void RecalculateInfluenceMap()
+    {
+        playerInfluence = new Dictionary<Tile, float>();
+        aiInfluence = new Dictionary<Tile, float>();
+
+        List<Tile> tiles = gridManager.GetAllTiles();
+
+        // Inicializar los mapas de influencia.
+        foreach (Tile tile in tiles)
+        {
+            playerInfluence[tile] = 0f;
+            aiInfluence[tile] = 0f;
+        }
+
+        // Obtener las unidades actuales.
+        units = new List<Unidad>(
+            FindObjectsByType<Unidad>(
+            FindObjectsSortMode.None
+            )
+        );
+        Debug.Log("UNIDADES ENCONTRADAS: " + units.Count);
+
+        // Calcular la influencia de cada unidad
+        foreach (Unidad unit in units)
+        {
+            ApplyUnitInfluence(unit, tiles);
+        }
+        foreach (Tile tile in tiles)//debug
+        {
+            Debug.Log(
+            tile.name + " | Seguridad: " + GetSecurity(tile));
+        }
+
+        VisualizarMapa();
+    }
+
+    private void ApplyUnitInfluence(
+        Unidad unit,
+        List<Tile> tiles)
+    {
+        Vector2Int unitPosition = unit.Posicion;
+
+        // F: potencia de influencia de la unidad.
+        float force = unit.ObtenerDatos().alcance;
+
+        Debug.Log("Unidad: " + unit.name);
+        Debug.Log("Equipo: " + unit.owner);
+        Debug.Log("Posición: " + unitPosition);
+        Debug.Log("Alcance / fuerza: " + force);
+
+        foreach (Tile tile in tiles)
+        {
+            Vector2Int tilePosition = new Vector2Int(
+                Mathf.RoundToInt(tile.transform.position.x),
+                Mathf.RoundToInt(tile.transform.position.y)
+            );
+
+            // Distancia de Manhattan
+            int distance =
+                Mathf.Abs(unitPosition.x - tilePosition.x) +
+                Mathf.Abs(unitPosition.y - tilePosition.y);
+
+            // Fórmula de influencia
+            float influence = 0f;
+
+            if (distance < MAX_INFLUENCE_DISTANCE)
+            {
+                influence = force *
+                    (1f - (float)distance / MAX_INFLUENCE_DISTANCE);
+            }
+
+            // Acumular influencia según el equipo
+            if (unit.owner == TurnType.Player)
+            {
+                playerInfluence[tile] += influence;
+            }
+            else if (unit.owner == TurnType.AI)
+            {
+                aiInfluence[tile] += influence;
+            }
+        }
+    }
+
+    public float GetSecurity(Tile tile)
+    {
+        return playerInfluence[tile] - aiInfluence[tile];
+    }
+
+   private void VisualizarMapa()
+    {
+        foreach (Tile tile in gridManager.GetAllTiles())
+        {
+            float seguridad = GetSecurity(tile);
+
+            if (seguridad != 0)
+            {
+                tile.SetInfluenceHighlight(true);
+
+                // Intensidad según la influencia
+                float intensidad = Mathf.Clamp01(
+                    Mathf.Abs(seguridad) / 5f
+                );
+
+                float alpha = Mathf.Lerp(0.5f, 1f, intensidad);
+
+                Color color;
+
+                if (seguridad > 0)
+                {
+                    // Influencia del jugador
+                    color = tile.GetHighlightColor();
+                }
+                else
+                {
+                    // Influencia de la IA
+                    color = aiInfluenceColor;
+                }
+
+                color.a = alpha;
+
+                tile.SetInfluenceColor(color);
+            }
+            else
+            {
+                tile.SetInfluenceHighlight(false);
+            }
+        }
+    }
+
+    public void SuscribirUnidades()
+    {
+        Unidad[] unidades = FindObjectsByType<Unidad>(
+            FindObjectsSortMode.None
+        );
+
+        foreach (Unidad unidad in unidades)
+        {
+            unidad.AlMoverse -= AlMoverseUnidad;
+            unidad.AlMoverse += AlMoverseUnidad;
+        }
+    }
+
+private void AlMoverseUnidad(Unidad unidad)
+    {
+        RecalculateInfluenceMap();
+    }
+}
