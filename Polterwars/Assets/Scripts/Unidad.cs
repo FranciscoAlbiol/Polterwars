@@ -35,12 +35,27 @@ public class Unidad : MonoBehaviour
         database.Add(tipo_a, data_a);
     }
 }
+    public int vida_actual = 10;
 
-    private void Start()
+    private Dictionary<UnitType, UnitData> database;
+    private SpriteRenderer sprite;
+   
+    
+
+    private void Awake()
     {
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 1;
         sprite.sprite = getImage();
+
+        //inicializa el diccionario (unity no permite diccionarios en el inspector)
+        database = new Dictionary<UnitType, UnitData>();
+        foreach(ListElement unit in database_array) {
+            UnitType tipo_a = unit.tipo;
+            UnitData data_a = unit.data;
+
+            database.Add(tipo_a, data_a);
+        }
     }
 
     public int ObtenerPuntosMovimiento()
@@ -48,10 +63,13 @@ public class Unidad : MonoBehaviour
         return database[tipo].puntos_movimiento;
     }
 
-    public void Configurar(UnitType nuevoTipo, Vector2Int nuevaPosicion)
+    public void Configurar(UnitType nuevoTipo, Vector2Int nuevaPosicion, TurnType nuevo_owner)
     {
         tipo = nuevoTipo;
         posicion = nuevaPosicion;
+        owner = nuevo_owner;
+        vida_actual = ObtenerVidaMax();
+        sprite.sprite = getImage();
 
         transform.position = new Vector3(
             posicion.x,
@@ -95,5 +113,13 @@ public class Unidad : MonoBehaviour
 
     private Sprite getImage() {
         return database[tipo].imagen;
+    }
+
+    private int ObtenerVidaMax() {
+        if (database[tipo])
+            return database[tipo].vida_max;
+        else
+            Debug.LogError("huh");
+            return 6;
     }
 }

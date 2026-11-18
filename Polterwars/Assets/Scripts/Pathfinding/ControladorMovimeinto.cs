@@ -120,7 +120,8 @@ public class ControladorMovimiento : MonoBehaviour
 
     public void SeleccionarUnidad(Unidad unidad)
     {
-        
+        if(unidad.owner != TurnType.Player)
+            return;
 
         LimpiarResaltados();
         unidadSeleccionada = unidad;

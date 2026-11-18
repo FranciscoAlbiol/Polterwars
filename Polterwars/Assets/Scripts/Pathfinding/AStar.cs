@@ -62,6 +62,9 @@ public static class AStar
                     vecino.Terreno
                 );
 
+                if (vecino.Ocupado)
+                    costeMovimiento = -1;
+
                 if (costeMovimiento >= 0 &&
                     !visitados.Contains(posicionVecina))
                 {

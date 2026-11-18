@@ -16,6 +16,7 @@ public class UnitData : ScriptableObject
     public Sprite imagen;
     public int puntos_movimiento;
     public int alcance; //Para el mapa de influencia
+    public int vida_max = 5;
     public TerrainListElement[] coste_por_terreno_array;
 
     private Dictionary<TerrainType, int> coste_por_terreno_cache;
