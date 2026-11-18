@@ -18,15 +18,16 @@ public class Unidad : MonoBehaviour
     public Vector2Int Posicion => posicion;
     public TurnType owner = TurnType.Player; //se inicializara como dios manda al crearlas en las fabricas
     public int PuntosMovimiento => ObtenerPuntosMovimiento();
+    public int vida_actual = 10;
 
     private Dictionary<UnitType, UnitData> database;
-
+    private SpriteRenderer sprite;
    
     
 
-    private void Start()
+    private void Awake()
     {
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 1;
 
         //inicializa el diccionario (unity no permite diccionarios en el inspector)
@@ -37,8 +38,6 @@ public class Unidad : MonoBehaviour
 
             database.Add(tipo_a, data_a);
         }
-
-        sprite.sprite = getImage();
     }
 
     public int ObtenerPuntosMovimiento()
@@ -51,6 +50,8 @@ public class Unidad : MonoBehaviour
         tipo = nuevoTipo;
         posicion = nuevaPosicion;
         owner = nuevo_owner;
+        vida_actual = ObtenerVidaMax();
+        sprite.sprite = getImage();
 
         transform.position = new Vector3(
             posicion.x,
@@ -93,5 +94,13 @@ public class Unidad : MonoBehaviour
 
     private Sprite getImage() {
         return database[tipo].imagen;
+    }
+
+    private int ObtenerVidaMax() {
+        if (database[tipo])
+            return database[tipo].vida_max;
+        else
+            Debug.LogError("huh");
+            return 6;
     }
 }

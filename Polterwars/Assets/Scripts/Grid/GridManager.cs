@@ -40,11 +40,11 @@ public class GridManager : MonoBehaviour
                     terreno = TerrainType.Gotera;
                 }
 
-                
-                if (j >= height / 2)
+                //NIEBLA COMENTADA MIENTRAS FRAN TRABAJA EN LAS UNIDADES DE LOS ENEMIGOS
+                /*if (j >= height / 2)
                 {
                     spawnedTile.Tapar(true);
-                }
+                }*/
 
                 spawnedTile.SetTerrain(terreno);
                 //prueba

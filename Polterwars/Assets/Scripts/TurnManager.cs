@@ -79,19 +79,20 @@ public class TurnManager : MonoBehaviour
             foreach (Refineria refineria in grid_manager.refinerias) {
                 refineria.crear_materiales();
             }
+
             remainingPlayerActions = playerActionsPerTurn;
+            textMeshPro.text = "Acciones disponibles: "
+                + remainingPlayerActions;
         }
 
         textMeshPro.text = "RONDA: " + currentRound;
         textMeshPro.text = "TURNO: " + currentTurn;
 
-        if (currentTurn == TurnType.Player)
+        if (currentTurn == TurnType.AI)
         {
-            textMeshPro.text = "Acciones disponibles: "
-                + remainingPlayerActions;
+            
         }
 
-        
 
         OnTurnChanged?.Invoke(currentTurn, currentRound);
     }
