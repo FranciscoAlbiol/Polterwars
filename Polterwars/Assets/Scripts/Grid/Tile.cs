@@ -16,9 +16,15 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject highlight;
     [SerializeField] private SpriteRenderer highlightRenderer;
     [SerializeField] private GameObject mouseHighlight;
-    [SerializeField] private GameObject influenceHighlight;
-    [SerializeField] private SpriteRenderer influenceHighlightRenderer;
     [SerializeField] private GameObject niebla;
+
+    //[SerializeField] private GameObject influenceHighlight;
+    //[SerializeField] private SpriteRenderer influenceHighlightRenderer;
+    [SerializeField] private GameObject playerInfluenceHighlight;
+    [SerializeField] private SpriteRenderer playerInfluenceRenderer;
+    [SerializeField] private GameObject aiInfluenceHighlight;
+    [SerializeField] private SpriteRenderer aiInfluenceRenderer;
+
 
     public event Action<Tile> AlEntrarRaton;
     public event Action<Tile> AlSalirRaton;
@@ -86,18 +92,38 @@ public class Tile : MonoBehaviour
         niebla.SetActive(tapado);
     }
 
-    public void SetInfluenceHighlight(bool activo)
+    public void SetPlayerInfluence(bool activo)
     {
-        influenceHighlight.SetActive(activo);
+        playerInfluenceHighlight.SetActive(activo);
     }
 
-    public void SetInfluenceColor(Color color)
+    public void SetAIInfluence(bool activo)
     {
-        influenceHighlightRenderer.color = color;
+        aiInfluenceHighlight.SetActive(activo);
     }
+
+    public void SetPlayerInfluenceColor(Color color)
+    {
+        playerInfluenceRenderer.color = color;
+    }
+
+    public void SetAIInfluenceColor(Color color)
+    {
+        aiInfluenceRenderer.color = color;
+    }
+
+    //public void SetInfluenceHighlight(bool activo)
+    //{
+        //influenceHighlight.SetActive(activo);
+    //}
+
+    //public void SetInfluenceColor(Color color)
+    //{
+        //influenceHighlightRenderer.color = color;
+    //}
 
     public Color GetHighlightColor()
     {
-        return influenceHighlightRenderer.color;
+        return playerInfluenceRenderer.color;
     }
 }

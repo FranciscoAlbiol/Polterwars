@@ -543,7 +543,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880689752}
-  - component: {fileID: 880689754}
   - component: {fileID: 880689751}
   - component: {fileID: 880689753}
   m_Layer: 0
@@ -598,24 +597,6 @@ MonoBehaviour:
   currentTurn: 1
   currentRound: 1
   playerActionsPerTurn: 3
---- !u!1 &912027649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 912027651}
-  - component: {fileID: 912027650}
-  m_Layer: 0
-  m_Name: InfluenceMapManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &912027650
 --- !u!114 &880689754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,6 +610,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfluenceMapManager
   gridManager: {fileID: 1377928868}
+  aiInfluenceColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1 &912027649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912027651}
+  - component: {fileID: 880689754}
+  m_Layer: 0
+  m_Name: InfluenceMapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &912027651
 Transform:
   m_ObjectHideFlags: 0
@@ -644,12 +643,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_GameObject: {fileID: 880689750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3e19ce5a177784fa26694c8facf60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &913378506
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GestorUnidades
   prefabUnidad: {fileID: 5917224897041802387, guid: d073289e51f4f68469fafde69a9fb584, type: 3}
   grid_manager: {fileID: 1377928868}
-  influenceMapManager: {fileID: 912027650}
+  influenceMapManager: {fileID: 880689754}
 --- !u!4 &913378508
 Transform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,9 @@ public class Unidad : MonoBehaviour
 
     private Dictionary<UnitType, UnitData> database;
 
+    public int vida_actual = 10;
+    private SpriteRenderer sprite;
+
     private void Awake()
 {
     // Inicializa el diccionario.
@@ -34,17 +37,8 @@ public class Unidad : MonoBehaviour
 
         database.Add(tipo_a, data_a);
     }
-}
-    public int vida_actual = 10;
 
-    private Dictionary<UnitType, UnitData> database;
-    private SpriteRenderer sprite;
-   
-    
-
-    private void Awake()
-    {
-        sprite = GetComponent<SpriteRenderer>();
+    sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 1;
         sprite.sprite = getImage();
 
@@ -56,7 +50,7 @@ public class Unidad : MonoBehaviour
 
             database.Add(tipo_a, data_a);
         }
-    }
+}
 
     public int ObtenerPuntosMovimiento()
     {

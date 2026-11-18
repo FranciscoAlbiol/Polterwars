@@ -111,40 +111,34 @@ public class InfluenceMapManager : MonoBehaviour
     {
         foreach (Tile tile in gridManager.GetAllTiles())
         {
-            float seguridad = GetSecurity(tile);
+            float player = playerInfluence[tile];
+            float ai = aiInfluence[tile];
 
-            if (seguridad != 0)
-            {
-                tile.SetInfluenceHighlight(true);
+            // Comprobar si cada equipo tiene influencia
+            bool hasPlayer = player > 0;
+            bool hasAI = ai > 0;
 
-                // Intensidad según la influencia
-                float intensidad = Mathf.Clamp01(
-                    Mathf.Abs(seguridad) / 5f
-                );
+            // Calcular opacidad individual
+            float playerIntensity = Mathf.Clamp01(player / 5f);
+            float aiIntensity = Mathf.Clamp01(ai / 5f);
 
-                float alpha = Mathf.Lerp(0.5f, 1f, intensidad);
+            float playerAlpha = Mathf.Lerp(0.5f, 1f, playerIntensity);
+            float aiAlpha = Mathf.Lerp(0.5f, 1f, aiIntensity);
 
-                Color color;
+            // Obtener colores
+            Color playerColor = tile.GetHighlightColor();
+            playerColor.a = playerAlpha;
 
-                if (seguridad > 0)
-                {
-                    // Influencia del jugador
-                    color = tile.GetHighlightColor();
-                }
-                else
-                {
-                    // Influencia de la IA
-                    color = aiInfluenceColor;
-                }
+            Color enemyColor = aiInfluenceColor;
+            enemyColor.a = aiAlpha;
 
-                color.a = alpha;
+            // Aplicar colores
+            tile.SetPlayerInfluenceColor(playerColor);
+            tile.SetAIInfluenceColor(enemyColor);
 
-                tile.SetInfluenceColor(color);
-            }
-            else
-            {
-                tile.SetInfluenceHighlight(false);
-            }
+            // Activar o desactivar cada capa
+            tile.SetPlayerInfluence(hasPlayer);
+            tile.SetAIInfluence(hasAI);
         }
     }
 
