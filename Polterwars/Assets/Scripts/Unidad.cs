@@ -18,17 +18,29 @@ public class Unidad : MonoBehaviour
     public Vector2Int Posicion => posicion;
     public TurnType owner = TurnType.Player; //se inicializara como dios manda al crearlas en las fabricas
     public int PuntosMovimiento => ObtenerPuntosMovimiento();
-    public int vida_actual = 10;
+    public event Action<Unidad> AlMoverse; //Para el mapa de influencia
 
     private Dictionary<UnitType, UnitData> database;
+
+    public int vida_actual = 10;
     private SpriteRenderer sprite;
-   
-    
 
     private void Awake()
+{
+    // Inicializa el diccionario.
+    database = new Dictionary<UnitType, UnitData>();
+
+    foreach (ListElement unit in database_array)
     {
-        sprite = GetComponent<SpriteRenderer>();
+        UnitType tipo_a = unit.tipo;
+        UnitData data_a = unit.data;
+
+        database.Add(tipo_a, data_a);
+    }
+
+    sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 1;
+        sprite.sprite = getImage();
 
         //inicializa el diccionario (unity no permite diccionarios en el inspector)
         database = new Dictionary<UnitType, UnitData>();
@@ -38,7 +50,7 @@ public class Unidad : MonoBehaviour
 
             database.Add(tipo_a, data_a);
         }
-    }
+}
 
     public int ObtenerPuntosMovimiento()
     {
@@ -81,7 +93,8 @@ public class Unidad : MonoBehaviour
             posicion.y,
             0
         );
-        
+
+        AlMoverse?.Invoke(this);//Para el mapa de influencia
     }
 
     public UnitData ObtenerDatos() {
