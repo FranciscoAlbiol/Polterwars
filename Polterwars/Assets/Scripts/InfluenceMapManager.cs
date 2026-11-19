@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class InfluenceMapManager : MonoBehaviour
 {
     [SerializeField] private GridManager gridManager;
-    [SerializeField] private Color aiInfluenceColor = Color.red;
 
     private const int MAX_INFLUENCE_DISTANCE = 4;
 
@@ -33,7 +32,7 @@ public class InfluenceMapManager : MonoBehaviour
             aiInfluence[tile] = 0f;
         }
 
-        // Obtener las unidades actuales.
+        // Obtener las unidades actuales
         units = new List<Unidad>(
             FindObjectsByType<Unidad>(
             FindObjectsSortMode.None
@@ -46,11 +45,6 @@ public class InfluenceMapManager : MonoBehaviour
         {
             ApplyUnitInfluence(unit, tiles);
         }
-        foreach (Tile tile in tiles)//debug
-        {
-            Debug.Log(
-            tile.name + " | Seguridad: " + GetSecurity(tile));
-        }
 
         VisualizarMapa();
     }
@@ -61,8 +55,7 @@ public class InfluenceMapManager : MonoBehaviour
     {
         Vector2Int unitPosition = unit.Posicion;
 
-        // F: potencia de influencia de la unidad.
-        float force = unit.ObtenerDatos().alcance;
+        float force = unit.ObtenerDatos().alcance; //Usa el alcance como potencia / fuerza
 
         Debug.Log("Unidad: " + unit.name);
         Debug.Log("Equipo: " + unit.owner);
@@ -104,7 +97,7 @@ public class InfluenceMapManager : MonoBehaviour
 
     public float GetSecurity(Tile tile)
     {
-        return playerInfluence[tile] - aiInfluence[tile];
+        return playerInfluence[tile] - aiInfluence[tile]; //De momento lo resta y puede salir negativo
     }
 
    private void VisualizarMapa()
@@ -126,10 +119,10 @@ public class InfluenceMapManager : MonoBehaviour
             float aiAlpha = Mathf.Lerp(0.5f, 1f, aiIntensity);
 
             // Obtener colores
-            Color playerColor = tile.GetHighlightColor();
+            Color playerColor = tile.GetPlayerHighlightColor();
             playerColor.a = playerAlpha;
 
-            Color enemyColor = aiInfluenceColor;
+            Color enemyColor = tile.GetAIHighlightColor();
             enemyColor.a = aiAlpha;
 
             // Aplicar colores

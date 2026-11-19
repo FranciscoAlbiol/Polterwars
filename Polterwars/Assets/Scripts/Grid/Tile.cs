@@ -17,9 +17,6 @@ public class Tile : MonoBehaviour
     [SerializeField] private SpriteRenderer highlightRenderer;
     [SerializeField] private GameObject mouseHighlight;
     [SerializeField] private GameObject niebla;
-
-    //[SerializeField] private GameObject influenceHighlight;
-    //[SerializeField] private SpriteRenderer influenceHighlightRenderer;
     [SerializeField] private GameObject playerInfluenceHighlight;
     [SerializeField] private SpriteRenderer playerInfluenceRenderer;
     [SerializeField] private GameObject aiInfluenceHighlight;
@@ -112,18 +109,13 @@ public class Tile : MonoBehaviour
         aiInfluenceRenderer.color = color;
     }
 
-    //public void SetInfluenceHighlight(bool activo)
-    //{
-        //influenceHighlight.SetActive(activo);
-    //}
-
-    //public void SetInfluenceColor(Color color)
-    //{
-        //influenceHighlightRenderer.color = color;
-    //}
-
-    public Color GetHighlightColor()
+    public Color GetPlayerHighlightColor()
     {
         return playerInfluenceRenderer.color;
+    }
+
+    public Color GetAIHighlightColor()
+    {
+        return aiInfluenceRenderer.color;
     }
 }
