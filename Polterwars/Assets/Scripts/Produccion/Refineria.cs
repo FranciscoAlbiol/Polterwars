@@ -22,10 +22,17 @@ public class Refineria : MonoBehaviour
 
     public void definir_radio_toma() {
         radio_toma = new [] { 
+                //arriba abajo izquierda derecha (no en ese orden)
                 new Vector2(transform.position.x, transform.position.y + 1),
                 new Vector2(transform.position.x, transform.position.y - 1),
                 new Vector2(transform.position.x + 1, transform.position.y),
-                new Vector2(transform.position.x - 1, transform.position.y)
+                new Vector2(transform.position.x - 1, transform.position.y),
+
+                //diagonales
+                new Vector2(transform.position.x + 1, transform.position.y + 1), // U + R
+                new Vector2(transform.position.x + 1, transform.position.y - 1), // D + R
+                new Vector2(transform.position.x - 1, transform.position.y - 1), // D + L
+                new Vector2(transform.position.x - 1, transform.position.y + 1)  // U + L
             };
     }
 
