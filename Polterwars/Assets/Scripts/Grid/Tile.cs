@@ -17,6 +17,11 @@ public class Tile : MonoBehaviour
     [SerializeField] private SpriteRenderer highlightRenderer;
     [SerializeField] private GameObject mouseHighlight;
     [SerializeField] private GameObject niebla;
+    [SerializeField] private GameObject playerInfluenceHighlight;
+    [SerializeField] private SpriteRenderer playerInfluenceRenderer;
+    [SerializeField] private GameObject aiInfluenceHighlight;
+    [SerializeField] private SpriteRenderer aiInfluenceRenderer;
+
 
     public event Action<Tile> AlEntrarRaton;
     public event Action<Tile> AlSalirRaton;
@@ -82,5 +87,35 @@ public class Tile : MonoBehaviour
     {
         tapado = tapa;
         niebla.SetActive(tapado);
+    }
+
+    public void SetPlayerInfluence(bool activo)
+    {
+        playerInfluenceHighlight.SetActive(activo);
+    }
+
+    public void SetAIInfluence(bool activo)
+    {
+        aiInfluenceHighlight.SetActive(activo);
+    }
+
+    public void SetPlayerInfluenceColor(Color color)
+    {
+        playerInfluenceRenderer.color = color;
+    }
+
+    public void SetAIInfluenceColor(Color color)
+    {
+        aiInfluenceRenderer.color = color;
+    }
+
+    public Color GetPlayerHighlightColor()
+    {
+        return playerInfluenceRenderer.color;
+    }
+
+    public Color GetAIHighlightColor()
+    {
+        return aiInfluenceRenderer.color;
     }
 }

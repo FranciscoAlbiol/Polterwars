@@ -105,3 +105,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   material: 0
+  radio_toma: []
+  owner: 0

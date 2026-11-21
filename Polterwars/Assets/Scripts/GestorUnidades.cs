@@ -6,6 +6,7 @@ public class GestorUnidades : MonoBehaviour
 {
     [SerializeField] private Unidad prefabUnidad;
     [SerializeField] private GridManager grid_manager;
+    [SerializeField] private InfluenceMapManager influenceMapManager;
 
     private List<Unidad> unidades = new List<Unidad>();
 
@@ -16,6 +17,9 @@ public class GestorUnidades : MonoBehaviour
         CrearUnidad(UnitType.Explorador, new Vector2Int(5, 1), TurnType.Player);
         
         Debug.Log("Unidades creadas: " + unidades.Count);
+
+        influenceMapManager.SuscribirUnidades();
+        influenceMapManager.RecalculateInfluenceMap();
     }
     public Unidad CrearUnidad(UnitType tipo, Vector2Int posicion, TurnType duenyo)
     {
