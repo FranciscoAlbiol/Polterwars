@@ -226,4 +226,8 @@ public class ControladorMovimiento : MonoBehaviour
 
         caminoActual.Clear();
     }
+
+    public GridDatos ObtenerDatosGrid() {
+        return gridDatos;
+    }
 }

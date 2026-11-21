@@ -26,6 +26,9 @@ public class Unidad : MonoBehaviour
     public int vida_actual = 10;
     private SpriteRenderer sprite;
 
+    [HideInInspector] // Hides var below
+    public ControladorMovimiento controlador;
+
     private void Awake()
     {
     // Inicializa el diccionario.
@@ -51,6 +54,10 @@ public class Unidad : MonoBehaviour
 
             database.Add(tipo_a, data_a);
         }
+    }
+
+    private void Start() {
+        controlador = FindObjectOfType<ControladorMovimiento>();
     }
 
     private Sprite getImage() {
