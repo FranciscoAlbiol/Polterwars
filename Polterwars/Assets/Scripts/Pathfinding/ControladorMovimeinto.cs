@@ -120,9 +120,14 @@ public class ControladorMovimiento : MonoBehaviour
 
     public void SeleccionarUnidad(Unidad unidad)
     {
-        if(unidad.owner != TurnType.Player)
+        if(unidad.owner != TurnType.Player){
+            if(unidadSeleccionada != null) {
+                int ataque_unidad = unidadSeleccionada.ObtenerAtaque();
+                unidad.PerderVida(ataque_unidad);
+            }
+
             return;
-        
+        }
         if(unidad.seleccionada) {
             DeseleccionarUnidad(unidad);
             return;
@@ -150,8 +155,6 @@ public class ControladorMovimiento : MonoBehaviour
         LimpiarResaltados();
         unidadSeleccionada = null;
         unidad.seleccionada = false;
-
-        OcultarRadio();
     }
 
     private void MostrarRadio()
@@ -170,29 +173,6 @@ public class ControladorMovimiento : MonoBehaviour
             {
                 tile.SetHighlightColor(new Color(1f, 1f, 1f, 0.4f));
                 tile.SetHighlight(true);
-            }
-            else
-            {
-                tile.SetHighlight(false);
-            }
-        }
-    }
-
-    private void OcultarRadio() {
-        List<Tile> casillas = gridManager.GetAllTiles();
-
-        foreach (Tile tile in casillas)
-        {
-            Vector2Int posicion = new Vector2Int(
-                Mathf.RoundToInt(tile.transform.position.x),
-                Mathf.RoundToInt(tile.transform.position.y)
-            );
-
-            
-            if (radioActual.EsAlcanzable(posicion))
-            {
-                tile.SetHighlightColor(new Color(1f, 1f, 1f, 0.4f));
-                tile.SetHighlight(false);
             }
             else
             {

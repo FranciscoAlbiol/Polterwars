@@ -27,7 +27,7 @@ public class Unidad : MonoBehaviour
     private SpriteRenderer sprite;
 
     private void Awake()
-{
+    {
     // Inicializa el diccionario.
     database = new Dictionary<UnitType, UnitData>();
 
@@ -51,7 +51,11 @@ public class Unidad : MonoBehaviour
 
             database.Add(tipo_a, data_a);
         }
-}
+    }
+
+    private Sprite getImage() {
+        return database[tipo].imagen;
+    }
 
     public int ObtenerPuntosMovimiento()
     {
@@ -106,11 +110,7 @@ public class Unidad : MonoBehaviour
         return tipo;
     }
 
-    private Sprite getImage() {
-        return database[tipo].imagen;
-    }
-
-    private int ObtenerVidaMax() {
+    public int ObtenerVidaMax() {
         if (database[tipo])
             return database[tipo].vida_max;
         else
@@ -120,5 +120,9 @@ public class Unidad : MonoBehaviour
 
     public int ObtenerAtaque() {
         return database[tipo].ataque;
+    }
+
+    public void PerderVida(int vida) {
+        vida_actual -= vida;
     }
 }
