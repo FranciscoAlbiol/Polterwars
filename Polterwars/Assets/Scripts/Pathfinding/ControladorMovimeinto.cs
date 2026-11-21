@@ -122,9 +122,14 @@ public class ControladorMovimiento : MonoBehaviour
     {
         if(unidad.owner != TurnType.Player)
             return;
-
+        
+        if(unidad.seleccionada) {
+            DeseleccionarUnidad(unidad);
+            return;
+        }
         LimpiarResaltados();
         unidadSeleccionada = unidad;
+        unidad.seleccionada = true;
 
         radioActual = Dijkstra.CalcularRadio(
             gridDatos,
@@ -139,6 +144,14 @@ public class ControladorMovimiento : MonoBehaviour
 
         Debug.Log("Unidad seleccionada: " + unidadSeleccionada.Tipo);
         Debug.Log("Radio de accion calculado.");
+    }
+
+    public void DeseleccionarUnidad(Unidad unidad) {
+        LimpiarResaltados();
+        unidadSeleccionada = null;
+        unidad.seleccionada = false;
+
+        OcultarRadio();
     }
 
     private void MostrarRadio()
@@ -157,6 +170,29 @@ public class ControladorMovimiento : MonoBehaviour
             {
                 tile.SetHighlightColor(new Color(1f, 1f, 1f, 0.4f));
                 tile.SetHighlight(true);
+            }
+            else
+            {
+                tile.SetHighlight(false);
+            }
+        }
+    }
+
+    private void OcultarRadio() {
+        List<Tile> casillas = gridManager.GetAllTiles();
+
+        foreach (Tile tile in casillas)
+        {
+            Vector2Int posicion = new Vector2Int(
+                Mathf.RoundToInt(tile.transform.position.x),
+                Mathf.RoundToInt(tile.transform.position.y)
+            );
+
+            
+            if (radioActual.EsAlcanzable(posicion))
+            {
+                tile.SetHighlightColor(new Color(1f, 1f, 1f, 0.4f));
+                tile.SetHighlight(false);
             }
             else
             {

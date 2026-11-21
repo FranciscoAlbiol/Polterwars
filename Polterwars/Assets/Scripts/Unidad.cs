@@ -13,6 +13,7 @@ public class Unidad : MonoBehaviour
     [SerializeField] private UnitType tipo;
     [SerializeField] private Vector2Int posicion;
     [SerializeField] private ListElement[] database_array;
+    public bool seleccionada = false;
 
     public UnitType Tipo => tipo;
     public Vector2Int Posicion => posicion;
@@ -115,5 +116,9 @@ public class Unidad : MonoBehaviour
         else
             Debug.LogError("huh");
             return 6;
+    }
+
+    public int ObtenerAtaque() {
+        return database[tipo].ataque;
     }
 }
