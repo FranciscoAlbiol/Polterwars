@@ -122,8 +122,7 @@ public class ControladorMovimiento : MonoBehaviour
     {
         if(unidad.owner != TurnType.Player){
             if(unidadSeleccionada != null) {
-                int ataque_unidad = unidadSeleccionada.ObtenerAtaque();
-                unidad.PerderVida(ataque_unidad);
+                AtacarUnidad(unidadSeleccionada, unidad);
             }
 
             return;
@@ -149,6 +148,25 @@ public class ControladorMovimiento : MonoBehaviour
 
         Debug.Log("Unidad seleccionada: " + unidadSeleccionada.Tipo);
         Debug.Log("Radio de accion calculado.");
+    }
+
+    public void AtacarUnidad(Unidad unidad_atacante, Unidad unidad_atacada) {
+        int alcance_atacante = unidad_atacante.ObtenerAlcance();
+
+        RadioAccion radio_ataque = Dijkstra.CalcularRadio(
+            gridDatos,
+            unidad_atacante.Posicion,
+            unidad_atacante,
+            alcance_atacante
+        );
+
+        if (radio_ataque.EsAlcanzable(unidad_atacada.Posicion))
+        {
+            print("KICK HIS ASS");
+            int ataque_unidad = unidad_atacante.ObtenerAtaque();
+            unidad_atacada.PerderVida(ataque_unidad);
+        }
+
     }
 
     public void DeseleccionarUnidad(Unidad unidad) {

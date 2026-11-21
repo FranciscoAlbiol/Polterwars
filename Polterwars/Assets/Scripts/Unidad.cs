@@ -110,6 +110,10 @@ public class Unidad : MonoBehaviour
         return tipo;
     }
 
+    public int ObtenerAlcance() {
+        return database[tipo].alcance;
+    }
+
     public int ObtenerVidaMax() {
         if (database[tipo])
             return database[tipo].vida_max;
