@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Peon_Behaviour_Tree : Task //raiz
 {
-
+    
     public override void create_node() {
         hijos = new List<Task>();
 
@@ -12,17 +12,16 @@ public class Peon_Behaviour_Tree : Task //raiz
         foreach (Task c in hijos) {
             c.create_node();
         }
-        Debug.Log("I'm done giving birth");
     }
 
-    public override void add_hijos() {
+    public override void add_hijos() { //El orden IMPORTA: Añadir de mas a menos prioritario / más condiciones a menos condiciones
         hijos.Add(new Peon_ElegirMoverse());
     }
 
     public override bool run() { //esto es un SELECTOR -> si tuviera mas hijos, seguiria probando hasta encontrar uno que pueda hacer (o hasta que se quede sin)
         foreach (Task c in hijos) {
             if (c.run())
-                return true;
+                return true; //para una SECUENCIA, esto es false si alguno NO puede correr
         }
 
         return false;
@@ -30,12 +29,19 @@ public class Peon_Behaviour_Tree : Task //raiz
 
 }
 
+//----------------------------------------------------------------------------------
+//------------------------------
+// MOVIMIENTO DEL PEON
+//-----------------------------
+
 public class Peon_Movimiento : Task
 {
     public override bool run() {
-        Debug.Log("Imaginate que me muevo");
+        Vector2Int random_ass_pos = new Vector2Int(7, 3);
+        unidad.MoverA(random_ass_pos);
         return true;
     }
+
 }
 
 public class Peon_ElegirMoverse : Task 
@@ -62,3 +68,6 @@ public class Peon_ElegirMoverse : Task
         return false;
     }
 }
+
+//----------------------------------------------------------------------------------
+
