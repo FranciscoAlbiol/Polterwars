@@ -11,6 +11,8 @@ public class GridManager : MonoBehaviour
     private Dictionary<Vector2, Tile> tiles;
 
     public List<Refineria> refinerias;
+    public List<Fabrica> fabricas = new List<Fabrica>();
+
     [SerializeField] private GameObject refineria_prefab;
     
 

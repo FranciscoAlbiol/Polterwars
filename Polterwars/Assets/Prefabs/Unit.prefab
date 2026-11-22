@@ -145,4 +145,7 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: 95318aefc496e9e43ac7e01884998cc1, type: 2}
   - tipo: 7
     data: {fileID: 11400000, guid: 834bf25ea8efb0a47ab4b91f9f3f08ab, type: 2}
+  seleccionada: 0
   owner: 1
+  vida_actual: 10
+  controlador: {fileID: 0}

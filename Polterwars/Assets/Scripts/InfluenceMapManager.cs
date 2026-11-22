@@ -15,7 +15,7 @@ public class InfluenceMapManager : MonoBehaviour
 
     private void Start()
     {
-
+       
     }
 
     public void RecalculateInfluenceMap()
