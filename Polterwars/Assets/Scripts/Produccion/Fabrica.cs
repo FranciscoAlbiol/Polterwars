@@ -67,9 +67,20 @@ public class Fabrica : MonoBehaviour
         owner = nuevoOwner;
     }
 
-    public FabricaData ObtenerDatos()
+    public FabricaData ObtenerDatos()//para una fabrica que instancias
     {
         return datos;
+    }
+
+    public FabricaData ObtenerDatos(TipoFabrica nuevoTipo)//para un tipo de frabrica concreto sin necesidad de instanciarlo
+    {
+        foreach (ListElement fabrica in database_array)
+        {
+            if (fabrica.tipo == nuevoTipo)
+                return fabrica.data;
+        }
+
+        return null;
     }
 
     public void PerderVida(int cantidad)

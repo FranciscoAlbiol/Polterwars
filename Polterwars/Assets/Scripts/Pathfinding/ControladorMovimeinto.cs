@@ -1,10 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControladorMovimiento : MonoBehaviour
 {
     [SerializeField] private GridManager gridManager;
+    [SerializeField] private GameObject panelConstruccion;
+    [SerializeField] private GestorFabricas gestorFabricas;
+    [SerializeField] private Button botonRelojAveriado;
+    [SerializeField] private Button botonCarpaFeria;
+    [SerializeField] private Button botonMaquinaCoser;
 
     private GridDatos gridDatos;
     private RadioAccion radioActual;
@@ -13,7 +19,10 @@ public class ControladorMovimiento : MonoBehaviour
     private List<Vector2Int> caminoActual = new List<Vector2Int>();
 
     public TurnManager turnManager;
+    public InfluenceMapManager influenceMapManager;
+
     
+
 
     private void Start()
     {
@@ -63,8 +72,14 @@ public class ControladorMovimiento : MonoBehaviour
     private void AlHacerClickEnCasilla(Tile tile)
     {
         print("Seleccionando casilla");
-        if (unidadSeleccionada == null || turnManager.IsAITurn())
+        if (turnManager.IsAITurn())
             return;
+
+        if (unidadSeleccionada == null)
+        {
+            SeleccionarCasillaConstruccion(tile);
+            return;
+        }
 
         Vector2Int destino = new Vector2Int(
             Mathf.RoundToInt(tile.transform.position.x),
@@ -87,8 +102,11 @@ public class ControladorMovimiento : MonoBehaviour
         if (camino.Count -1 <=0)
             return;
 
-       
+        Vector2Int posicionAnterior = unidadSeleccionada.Posicion;
+        gridManager.Liberar_Posicion(posicionAnterior);
+
         unidadSeleccionada.MoverA(destino);
+        gridManager.Ocupar_Posicion(destino);
         bool puedeTomar = gridDatos.Puede_Tomar_Refineria(destino, unidadSeleccionada.owner);
         turnManager.PerformPlayerAction();
 
@@ -229,5 +247,66 @@ public class ControladorMovimiento : MonoBehaviour
 
     public GridDatos ObtenerDatosGrid() {
         return gridDatos;
+    }
+
+    private void SeleccionarCasillaConstruccion(Tile tile)
+    {
+        print("Probando construccion");
+        if (tile == null || tile.taken)
+            return;
+
+        if (tile.terrainType == TerrainType.Gotera ||
+            tile.terrainType == TerrainType.Caja)
+            return;
+
+        if (influenceMapManager.GetSecurity(tile) <= 0)
+            return;
+
+        panelConstruccion.SetActive(true);
+
+        Vector3 posicionPantalla = Camera.main.WorldToScreenPoint(
+            tile.transform.position
+        );
+
+        posicionPantalla.x += 100;
+        posicionPantalla.y += 50;
+
+        panelConstruccion.transform.position = posicionPantalla;
+
+        botonRelojAveriado.onClick.RemoveAllListeners();
+        botonCarpaFeria.onClick.RemoveAllListeners();
+        botonMaquinaCoser.onClick.RemoveAllListeners();
+
+        botonRelojAveriado.onClick.AddListener(() =>
+            ConstruirEnCasilla(TipoFabrica.RelojAveriado, tile));
+
+        botonCarpaFeria.onClick.AddListener(() =>
+            ConstruirEnCasilla(TipoFabrica.CarpaFeria, tile));
+
+        botonMaquinaCoser.onClick.AddListener(() =>
+            ConstruirEnCasilla(TipoFabrica.MaquinaCoser, tile));
+    }
+
+    public void ConstruirEnCasilla(TipoFabrica tipo, Tile tile)
+    {
+        Vector2Int posicion = new Vector2Int(
+            Mathf.RoundToInt(tile.transform.position.x),
+            Mathf.RoundToInt(tile.transform.position.y)
+        );
+
+        bool construida = gestorFabricas.ConstruirFabrica(
+            tipo,
+            posicion,
+            TurnType.Player
+        );
+
+        if (construida)
+        {
+            panelConstruccion.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("No se puede construir: comprueba los materiales y la casilla.");
+        }
     }
 }

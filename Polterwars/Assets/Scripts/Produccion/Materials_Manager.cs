@@ -21,10 +21,10 @@ public class Materials_Manager : MonoBehaviour
 
     private void Inicializar_Listas() {
         materiales_jugador = new Dictionary<Tipos_Material, int>();
-        materiales_jugador.Add(Tipos_Material.Madera, 0);
-        materiales_jugador.Add(Tipos_Material.Hojalata, 0);
-        materiales_jugador.Add(Tipos_Material.Algodon, 0);
-        materiales_jugador.Add(Tipos_Material.Almas, 0);
+        materiales_jugador.Add(Tipos_Material.Madera, 1000);
+        materiales_jugador.Add(Tipos_Material.Hojalata, 1000);
+        materiales_jugador.Add(Tipos_Material.Algodon, 1000);
+        materiales_jugador.Add(Tipos_Material.Almas, 1000);
 
         materiales_IA = new Dictionary<Tipos_Material, int>();
         materiales_IA.Add(Tipos_Material.Madera, 0);

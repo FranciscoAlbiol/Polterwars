@@ -89,6 +89,28 @@ public class GridManager : MonoBehaviour
         casilla_ocupada.taken = true;
     }
 
+    public void Liberar_Posicion(Vector2Int posicion)
+    {
+        Vector2 posicion_v2 = posicion;
+
+        Tile casilla = GetTile(posicion_v2);
+
+        if (casilla == null)
+            return;
+
+        casilla.taken = false;
+    }
+
+    public bool CasillaDisponible(Vector2Int posicion)
+    {
+        Tile tile = GetTile(posicion);
+
+        if (tile == null)
+            return false;
+
+        return !tile.taken;
+    }
+
     public Tile GetTile(Vector2 pos) {
         if(tiles.TryGetValue(pos, out var tile)) {
             return tile;

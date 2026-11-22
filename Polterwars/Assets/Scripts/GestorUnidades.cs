@@ -23,6 +23,11 @@ public class GestorUnidades : MonoBehaviour
     }
     public Unidad CrearUnidad(UnitType tipo, Vector2Int posicion, TurnType duenyo)
     {
+        Tile tile = grid_manager.GetTile(posicion);
+
+        if (tile == null || tile.taken)
+            return null;
+
         Unidad nuevaUnidad = Instantiate(prefabUnidad);
 
         nuevaUnidad.Configurar(tipo, posicion, duenyo);
