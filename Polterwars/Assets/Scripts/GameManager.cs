@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager { get; private set; }
 
+    public List<Unidad> lista_unidades_jugador;
 
     private void Awake()
     {
@@ -29,5 +30,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void add_unidades_jugador(Unidad unidad_new) {
+        lista_unidades_jugador.Add(unidad_new);
+    }
+
+    public void remove_from_player_list(Unidad u) {
+        lista_unidades_jugador.Remove(u);
     }
 }

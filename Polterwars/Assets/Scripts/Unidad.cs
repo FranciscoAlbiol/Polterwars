@@ -135,5 +135,9 @@ public class Unidad : MonoBehaviour
 
     public void PerderVida(int vida) {
         vida_actual -= vida;
+        if(vida_actual <= 0){
+            GameManager.gameManager.remove_from_player_list(this);
+            Destroy(gameObject);
+        }
     }
 }

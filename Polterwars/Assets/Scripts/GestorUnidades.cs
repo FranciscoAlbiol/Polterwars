@@ -35,6 +35,9 @@ public class GestorUnidades : MonoBehaviour
 
         grid_manager.Ocupar_Posicion(posicion);
 
+        if(duenyo == TurnType.Player) 
+            GameManager.gameManager.add_unidades_jugador(nuevaUnidad);
+
         return nuevaUnidad;
     }
 }
