@@ -120,11 +120,20 @@ public class ControladorMovimiento : MonoBehaviour
 
     public void SeleccionarUnidad(Unidad unidad)
     {
-        if(unidad.owner != TurnType.Player)
-            return;
+        if(unidad.owner != TurnType.Player){
+            if(unidadSeleccionada != null) {
+                AtacarUnidad(unidadSeleccionada, unidad);
+            }
 
+            return;
+        }
+        if(unidad.seleccionada) {
+            DeseleccionarUnidad(unidad);
+            return;
+        }
         LimpiarResaltados();
         unidadSeleccionada = unidad;
+        unidad.seleccionada = true;
 
         radioActual = Dijkstra.CalcularRadio(
             gridDatos,
@@ -139,6 +148,31 @@ public class ControladorMovimiento : MonoBehaviour
 
         Debug.Log("Unidad seleccionada: " + unidadSeleccionada.Tipo);
         Debug.Log("Radio de accion calculado.");
+    }
+
+    public void AtacarUnidad(Unidad unidad_atacante, Unidad unidad_atacada) {
+        int alcance_atacante = unidad_atacante.ObtenerAlcance();
+
+        RadioAccion radio_ataque = Dijkstra.CalcularRadio(
+            gridDatos,
+            unidad_atacante.Posicion,
+            unidad_atacante,
+            alcance_atacante
+        );
+
+        if (radio_ataque.EsAlcanzable(unidad_atacada.Posicion))
+        {
+            print("KICK HIS ASS");
+            int ataque_unidad = unidad_atacante.ObtenerAtaque();
+            unidad_atacada.PerderVida(ataque_unidad);
+        }
+
+    }
+
+    public void DeseleccionarUnidad(Unidad unidad) {
+        LimpiarResaltados();
+        unidadSeleccionada = null;
+        unidad.seleccionada = false;
     }
 
     private void MostrarRadio()
@@ -191,5 +225,9 @@ public class ControladorMovimiento : MonoBehaviour
         }
 
         caminoActual.Clear();
+    }
+
+    public GridDatos ObtenerDatosGrid() {
+        return gridDatos;
     }
 }
