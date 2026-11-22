@@ -4,16 +4,6 @@ using System.Collections.Generic;
 
 public class Peon_Behaviour_Tree : Task //raiz
 {
-    
-    public override void create_node() {
-        hijos = new List<Task>();
-
-        add_hijos();
-        foreach (Task c in hijos) {
-            c.create_node();
-        }
-    }
-
     public override void add_hijos() { //El orden IMPORTA: Añadir de mas a menos prioritario / más condiciones a menos condiciones
         hijos.Add(new Peon_ElegirMoverse());
     }
@@ -21,7 +11,7 @@ public class Peon_Behaviour_Tree : Task //raiz
     public override bool run() { //esto es un SELECTOR -> si tuviera mas hijos, seguiria probando hasta encontrar uno que pueda hacer (o hasta que se quede sin)
         foreach (Task c in hijos) {
             if (c.run())
-                return true; //para una SECUENCIA, esto es false si alguno NO puede correr
+                return true;
         }
 
         return false;
@@ -120,15 +110,6 @@ public class Peon_Movimiento : Task
 
 public class Peon_ElegirMoverse : Task 
 {
-    public override void create_node() {
-        hijos = new List<Task>();
-
-        add_hijos();
-        foreach (Task c in hijos) {
-            c.create_node();
-        }
-    }
-    
     public override void add_hijos() {
         hijos.Add(new Peon_Movimiento());
     }
@@ -144,4 +125,41 @@ public class Peon_ElegirMoverse : Task
 }
 
 //----------------------------------------------------------------------------------
+//------------------------------
+// ATAQUE DEL PEON
+//-----------------------------
 
+//* Si tengo a alguien al lado, le ataco
+
+public class Peon_ElegirAtacar : Task 
+{   
+    public override void add_hijos() {
+        hijos.Add(new Peon_Movimiento());
+    }
+
+    public override bool run() { //esto es una SECUENCIA
+        foreach (Task c in hijos) {
+            if (!c.run())
+                return false; //Si alguna de las condiciones no se cumple, no se realiza la accion
+        }
+
+        return true;
+    }
+}
+
+public class Peon_ComprobarEnemigosRango : Task 
+{
+     
+    public override void add_hijos() {
+        hijos.Add(new Peon_Movimiento());
+    }
+
+    public override bool run() { //esto es una SECUENCIA
+        foreach (Task c in hijos) {
+            if (!c.run())
+                return false; //Si alguna de las condiciones no se cumple, no se realiza la accion
+        }
+
+        return true;
+    }
+}
