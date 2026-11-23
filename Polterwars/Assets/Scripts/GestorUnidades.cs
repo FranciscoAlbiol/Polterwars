@@ -7,6 +7,7 @@ public class GestorUnidades : MonoBehaviour
     [SerializeField] private Unidad prefabUnidad;
     [SerializeField] private GridManager grid_manager;
     [SerializeField] private InfluenceMapManager influenceMapManager;
+    [SerializeField] private Materials_Manager materials_manager;
 
     private List<Unidad> unidades = new List<Unidad>();
 
@@ -41,5 +42,56 @@ public class GestorUnidades : MonoBehaviour
         grid_manager.Ocupar_Posicion(posicion);
 
         return nuevaUnidad;
+    }
+
+    private bool PuedeFabricarUnidad(UnitType tipo, TurnType duenyo)
+    {
+        UnitData datos = prefabUnidad.ObtenerDatos(tipo);
+
+        if (datos == null) return false;
+
+        if (!materials_manager.TieneMateriales(
+            datos.coste_almas, Tipos_Material.Almas, duenyo))
+            return false;
+
+        foreach (UnitData.MaterialCost coste in datos.costes_materiales)
+        {
+            if (!materials_manager.TieneMateriales(
+                coste.cantidad, coste.material, duenyo))
+                return false;
+        }
+
+        return true;
+    }
+
+    public bool FabricarUnidad(UnitType tipo, Vector2Int posicion, TurnType duenyo)
+    {
+        if (!PuedeFabricarUnidad(tipo, duenyo))
+            return false;
+
+        Tile tile = grid_manager.GetTile(posicion);
+
+        if (tile == null || tile.taken)
+            return false;
+
+        Unidad nuevaUnidad = CrearUnidad(tipo, posicion, duenyo);
+
+        if (nuevaUnidad == null)
+            return false;
+
+        UnitData datos = prefabUnidad.ObtenerDatos(tipo);
+
+        // Gastar Almas
+        materials_manager.GastarMateriales(
+            datos.coste_almas, Tipos_Material.Almas, duenyo);
+
+        // Gastar los materiales adicionales
+        foreach (UnitData.MaterialCost coste in datos.costes_materiales)
+        {
+            materials_manager.GastarMateriales(
+                coste.cantidad, coste.material, duenyo);
+        }
+
+        return true;
     }
 }

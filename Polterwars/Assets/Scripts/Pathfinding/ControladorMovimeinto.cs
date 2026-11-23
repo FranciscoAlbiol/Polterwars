@@ -75,6 +75,8 @@ public class ControladorMovimiento : MonoBehaviour
         if (turnManager.IsAITurn())
             return;
 
+        FindObjectOfType<ControladorProduccion>().CerrarPanel();
+
         if (unidadSeleccionada == null)
         {
             SeleccionarCasillaConstruccion(tile);
@@ -150,6 +152,7 @@ public class ControladorMovimiento : MonoBehaviour
             return;
         }
         LimpiarResaltados();
+        panelConstruccion.SetActive(false);
         unidadSeleccionada = unidad;
         unidad.seleccionada = true;
 
@@ -249,8 +252,10 @@ public class ControladorMovimiento : MonoBehaviour
         return gridDatos;
     }
 
-    private void SeleccionarCasillaConstruccion(Tile tile)
+    private void SeleccionarCasillaConstruccion(Tile tile)//Esto igual lo muevo de script en algun momento
     {
+        panelConstruccion.SetActive(false);
+
         print("Probando construccion");
         if (tile == null || tile.taken)
             return;
@@ -268,7 +273,7 @@ public class ControladorMovimiento : MonoBehaviour
             tile.transform.position
         );
 
-        posicionPantalla.x += 100;
+        posicionPantalla.x += 150;
         posicionPantalla.y += 50;
 
         panelConstruccion.transform.position = posicionPantalla;

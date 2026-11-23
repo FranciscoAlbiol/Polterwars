@@ -18,6 +18,7 @@ public class Fabrica : MonoBehaviour
 
     private FabricaData datos;
     private SpriteRenderer sprite;
+    private ControladorProduccion controladorProduccion;
 
     public TipoFabrica Tipo => tipo;
     public TurnType Owner => owner;
@@ -25,6 +26,11 @@ public class Fabrica : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        controladorProduccion = FindObjectOfType<ControladorProduccion>();
     }
 
     public void Configurar(
@@ -91,5 +97,23 @@ public class Fabrica : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        if (UnityEngine.EventSystems.EventSystem.current != null &&
+            UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        FindObjectOfType<ControladorProduccion>().CerrarPanel();
+
+        if (owner != TurnType.Player)
+            return;
+
+        if (controladorProduccion != null)
+        {
+            controladorProduccion.SeleccionarFabrica(this);
+        }
+
     }
 }

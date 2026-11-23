@@ -16,7 +16,14 @@ MonoBehaviour:
   imagen: {fileID: -5497404683039575341, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 6
   alcance: 1
+  ataque: 0
   vida_max: 6
+  coste_almas: 300
+  costes_materiales:
+  - material: 0
+    cantidad: 50
+  - material: 1
+    cantidad: 100
   coste_por_terreno_array:
   - tipo: 0
     cost: 2

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -80,6 +81,9 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
+
         AlHacerClick?.Invoke(this);
     }
 

@@ -11,6 +11,13 @@ public class UnitData : ScriptableObject
         public int cost;
     }
 
+    [Serializable]
+    public struct MaterialCost //Para fabricacion
+    {
+        public Tipos_Material material;
+        public int cantidad;
+    }
+
 
     public UnitType tipo;
     public Sprite imagen;
@@ -18,6 +25,11 @@ public class UnitData : ScriptableObject
     public int alcance; //Para el mapa de influencia + ataque
     public int ataque;
     public int vida_max = 5;
+
+    [Header("Coste de fabricacion")]
+    public int coste_almas;
+    public MaterialCost[] costes_materiales;
+
     public TerrainListElement[] coste_por_terreno_array;
 
     private Dictionary<TerrainType, int> coste_por_terreno_cache;

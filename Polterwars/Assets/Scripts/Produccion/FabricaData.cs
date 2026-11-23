@@ -12,4 +12,7 @@ public class FabricaData : ScriptableObject
     public Tipos_Material material;
 
     public int vida_max = 15;
+
+    [Header("Unidades que puede fabricar")]
+    public UnitType[] unidades_fabricables;
 }

@@ -31,28 +31,22 @@ public class Unidad : MonoBehaviour
 
     private void Awake()
     {
-    // Inicializa el diccionario.
-    database = new Dictionary<UnitType, UnitData>();
+        InicializarBaseDatos();
 
-    foreach (ListElement unit in database_array)
-    {
-        UnitType tipo_a = unit.tipo;
-        UnitData data_a = unit.data;
-
-        database.Add(tipo_a, data_a);
-    }
-
-    sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 1;
         sprite.sprite = getImage();
+    }
 
-        //inicializa el diccionario (unity no permite diccionarios en el inspector)
+    private void InicializarBaseDatos()
+    {
+        if (database != null) return;
+
         database = new Dictionary<UnitType, UnitData>();
-        foreach(ListElement unit in database_array) {
-            UnitType tipo_a = unit.tipo;
-            UnitData data_a = unit.data;
 
-            database.Add(tipo_a, data_a);
+        foreach (ListElement unit in database_array)
+        {
+            database.Add(unit.tipo, unit.data);
         }
     }
 
@@ -89,6 +83,8 @@ public class Unidad : MonoBehaviour
         ControladorMovimiento controlador =
             FindObjectOfType<ControladorMovimiento>();
 
+        FindObjectOfType<ControladorProduccion>().CerrarPanel();
+
         if (controlador != null)
         {
             controlador.SeleccionarUnidad(this);
@@ -111,6 +107,17 @@ public class Unidad : MonoBehaviour
 
     public UnitData ObtenerDatos() {
         return database[tipo];
+    }
+
+    public UnitData ObtenerDatos(UnitType nuevoTipo)
+    {
+        InicializarBaseDatos();
+
+        if (database.TryGetValue(nuevoTipo, out UnitData datos))
+            return datos;
+
+        Debug.LogError("No hay datos para la unidad: " + nuevoTipo);
+        return null;
     }
 
     public UnitType ObtenerTipo() {

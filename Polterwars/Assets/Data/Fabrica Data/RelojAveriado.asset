@@ -18,3 +18,4 @@ MonoBehaviour:
   coste_material: 100
   material: 1
   vida_max: 15
+  unidades_fabricables: 0200000003000000
