@@ -828,10 +828,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12afc3b15f8e8d4c9b09c7674a8e3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
-  width: 18
-  height: 10
+  width: 45
+  height: 45
   tilePrefab: {fileID: 1357153217754235208, guid: a95a82d4f1b18294ea5633188689b8f9, type: 3}
   camera: {fileID: 787485716}
+  mapa: {fileID: 1583935348}
   refinerias: []
   refineria_prefab: {fileID: 9159626246977436246, guid: b19c55aa8e38e984fb6dadbfe181a3fb, type: 3}
 --- !u!4 &1377928869
@@ -996,6 +997,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1583935347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583935349}
+  - component: {fileID: 1583935348}
+  m_Layer: 0
+  m_Name: Mapa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1583935348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583935347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68def8f4a1b301944bda5fa3201d2fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrenosMapa
+--- !u!4 &1583935349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583935347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30243, y: 0.48404, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1011,3 +1056,4 @@ SceneRoots:
   - {fileID: 1544769414}
   - {fileID: 207585733}
   - {fileID: 912027651}
+  - {fileID: 1583935349}

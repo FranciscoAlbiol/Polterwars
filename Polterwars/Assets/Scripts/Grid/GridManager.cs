@@ -8,6 +8,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private Transform camera;
 
+    public TerrenosMapa mapa;
+
     private Dictionary<Vector2, Tile> tiles;
 
     public List<Refineria> refinerias;
@@ -25,20 +27,7 @@ public class GridManager : MonoBehaviour
                 var spawnedTile = Instantiate(tilePrefab, new Vector3(i, j), Quaternion.identity);
                 spawnedTile.name = $"Tile {i}{j}";
                 //prueba
-                TerrainType terreno = TerrainType.Suelo;
-
-                if (i == 2 && j == 2)
-                {
-                    terreno = TerrainType.Caja;
-                }
-                else if (i == 3 && j == 2)
-                {
-                    terreno = TerrainType.Alfombra;
-                }
-                else if (i == 2 && j == 3)
-                {
-                    terreno = TerrainType.Gotera;
-                }
+                TerrainType terreno = mapa.GetTerreno(j,i);
 
                 //NIEBLA COMENTADA MIENTRAS FRAN TRABAJA EN LAS UNIDADES DE LOS ENEMIGOS
                 /*if (j >= height / 2)
