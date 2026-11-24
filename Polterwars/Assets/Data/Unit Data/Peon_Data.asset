@@ -16,6 +16,7 @@ MonoBehaviour:
   imagen: {fileID: 9099666018732180237, guid: c273da42b75e78b4e89fd26e1676cede, type: 3}
   puntos_movimiento: 3
   alcance: 1
+  ataque: 4
   vida_max: 6
   coste_por_terreno_array:
   - tipo: 0
