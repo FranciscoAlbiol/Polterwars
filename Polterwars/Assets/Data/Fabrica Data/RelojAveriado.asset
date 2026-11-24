@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RelojAveriado
   m_EditorClassIdentifier: Assembly-CSharp::FabricaData
   tipo: 0
-  imagen: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
+  imagen: {fileID: -4248923290617878586, guid: d91f012427534d044908bdb9ea81fd4e, type: 3}
   coste_almas: 500
   coste_material: 100
   material: 1

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Alfombra_Data
   m_EditorClassIdentifier: Assembly-CSharp::TerrainData
   tipo: 0
-  color_normal: {r: 0.6026197, g: 0.3176471, b: 0.7647059, a: 1}
-  color_offset: {r: 0.48076797, g: 0.34901962, b: 0.6901961, a: 1}
+  color_normal: {r: 0.44705883, g: 0.7137255, b: 0.3882353, a: 1}
+  color_offset: {r: 0.44705883, g: 0.7137255, b: 0.3882353, a: 1}

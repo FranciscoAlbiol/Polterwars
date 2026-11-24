@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Caja_Data
   m_EditorClassIdentifier: Assembly-CSharp::TerrainData
   tipo: 3
-  color_normal: {r: 0.6301887, g: 0.3798926, b: 0.24137412, a: 1}
-  color_offset: {r: 0.6313726, g: 0.3803922, b: 0.24313727, a: 1}
+  color_normal: {r: 0.5019608, g: 0.4, b: 0.37254903, a: 1}
+  color_offset: {r: 0.5019608, g: 0.4, b: 0.37254903, a: 1}

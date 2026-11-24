@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MaquinaCoser
   m_EditorClassIdentifier: Assembly-CSharp::FabricaData
   tipo: 2
-  imagen: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  imagen: {fileID: 5446607858661299465, guid: d91f012427534d044908bdb9ea81fd4e, type: 3}
   coste_almas: 500
   coste_material: 100
   material: 2

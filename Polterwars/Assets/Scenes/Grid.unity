@@ -1350,6 +1350,7 @@ GameObject:
   - component: {fileID: 880689752}
   - component: {fileID: 880689751}
   - component: {fileID: 880689753}
+  - component: {fileID: 880689755}
   m_Layer: 0
   m_Name: GAME MANAGER
   m_TagString: Untagged
@@ -1415,6 +1416,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfluenceMapManager
   gridManager: {fileID: 1377928868}
+--- !u!114 &880689755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880689750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3e19ce5a177784fa26694c8facf60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  lista_unidades_jugador: []
 --- !u!1 &912027649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377928869}
   - component: {fileID: 1377928868}
+  - component: {fileID: 1377928870}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -2696,6 +2711,7 @@ MonoBehaviour:
   height: 45
   tilePrefab: {fileID: 1357153217754235208, guid: a95a82d4f1b18294ea5633188689b8f9, type: 3}
   camera: {fileID: 787485716}
+  mapa: {fileID: 1377928870}
   refinerias: []
   fabricas: []
   refineria_prefab: {fileID: 9159626246977436246, guid: b19c55aa8e38e984fb6dadbfe181a3fb, type: 3}
@@ -2714,6 +2730,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377928870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377928867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68def8f4a1b301944bda5fa3201d2fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrenosMapa
 --- !u!1 &1456918390
 GameObject:
   m_ObjectHideFlags: 0

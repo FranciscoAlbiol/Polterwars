@@ -1,0 +1,632 @@
+fileFormatVersion: 2
+guid: d91f012427534d044908bdb9ea81fd4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3268224535764224905
+    second: polterwars_tileset_and_structures_0
+  - first:
+      213: 4125258939438904805
+    second: polterwars_tileset_and_structures_1
+  - first:
+      213: 5446607858661299465
+    second: polterwars_tileset_and_structures_2
+  - first:
+      213: -4248923290617878586
+    second: polterwars_tileset_and_structures_3
+  - first:
+      213: 4331714041537508524
+    second: polterwars_tileset_and_structures_4
+  - first:
+      213: -1379813989646915986
+    second: polterwars_tileset_and_structures_5
+  - first:
+      213: -9216111821556044611
+    second: polterwars_tileset_and_structures_6
+  - first:
+      213: -748668598377330763
+    second: polterwars_tileset_and_structures_7
+  - first:
+      213: 1483094789318703672
+    second: polterwars_tileset_and_structures_8
+  - first:
+      213: -4505734322467781211
+    second: polterwars_tileset_and_structures_9
+  - first:
+      213: -7806209696859547346
+    second: polterwars_tileset_and_structures_10
+  - first:
+      213: -2743878862002536092
+    second: polterwars_tileset_and_structures_11
+  - first:
+      213: -2061927126928441404
+    second: polterwars_tileset_and_structures_12
+  - first:
+      213: 5177511335444457471
+    second: polterwars_tileset_and_structures_13
+  - first:
+      213: 6755590653042636808
+    second: polterwars_tileset_and_structures_14
+  - first:
+      213: 1058586779265796599
+    second: polterwars_tileset_and_structures_15
+  - first:
+      213: -1362573383588881287
+    second: polterwars_tileset_and_structures_16
+  - first:
+      213: 7494620624822539746
+    second: polterwars_tileset_and_structures_17
+  - first:
+      213: 5637527724251501997
+    second: polterwars_tileset_and_structures_18
+  - first:
+      213: -844687066563375920
+    second: polterwars_tileset_and_structures_19
+  - first:
+      213: 2508782124308847408
+    second: polterwars_tileset_and_structures_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 239
+        width: 49
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b417446e01b5d20800000000000000
+      internalID: 3268224535764224905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 203
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5b2cb162ddf3930800000000000000
+      internalID: 4125258939438904805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 208
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9059b567dfc369b40800000000000000
+      internalID: 5446607858661299465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 206
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c766d867cac805c0800000000000000
+      internalID: -4248923290617878586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_4
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 206
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca43a6a68f65d1c30800000000000000
+      internalID: 4331714041537508524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_5
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 208
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e662bfaac7ae9dce0800000000000000
+      internalID: -1379813989646915986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 206
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbcafd9902bc91080800000000000000
+      internalID: -9216111821556044611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_7
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 206
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b7ca3b50e13c95f0800000000000000
+      internalID: -748668598377330763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_8
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 159
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83af2956ad2059410800000000000000
+      internalID: 1483094789318703672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_9
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 159
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a5c501918a6871c0800000000000000
+      internalID: -4505734322467781211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_10
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 159
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e291a78c3a5caa390800000000000000
+      internalID: -7806209696859547346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 159
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461c2a376b8cbe9d0800000000000000
+      internalID: -2743878862002536092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_12
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 159
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf30bed3309263e0800000000000000
+      internalID: -2061927126928441404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff7a9b1c0273ad740800000000000000
+      internalID: 5177511335444457471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8083e8208eda0cd50800000000000000
+      internalID: 6755590653042636808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97c58c21aba271de0800000000000000
+      internalID: -1362573383588881287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_18
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da55d67a8958c3e40800000000000000
+      internalID: 5637527724251501997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_19
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc8f1b96911744f0800000000000000
+      internalID: -844687066563375920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polterwars_tileset_and_structures_20
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 127
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b574acc0cf0d220800000000000000
+      internalID: 2508782124308847408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 443f1109b507fa845a8d092f59203a61
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      polterwars_tileset_and_structures_0: 3268224535764224905
+      polterwars_tileset_and_structures_1: 4125258939438904805
+      polterwars_tileset_and_structures_10: -7806209696859547346
+      polterwars_tileset_and_structures_11: -2743878862002536092
+      polterwars_tileset_and_structures_12: -2061927126928441404
+      polterwars_tileset_and_structures_13: 5177511335444457471
+      polterwars_tileset_and_structures_14: 6755590653042636808
+      polterwars_tileset_and_structures_15: 1058586779265796599
+      polterwars_tileset_and_structures_16: -1362573383588881287
+      polterwars_tileset_and_structures_17: 7494620624822539746
+      polterwars_tileset_and_structures_18: 5637527724251501997
+      polterwars_tileset_and_structures_19: -844687066563375920
+      polterwars_tileset_and_structures_2: 5446607858661299465
+      polterwars_tileset_and_structures_20: 2508782124308847408
+      polterwars_tileset_and_structures_3: -4248923290617878586
+      polterwars_tileset_and_structures_4: 4331714041537508524
+      polterwars_tileset_and_structures_5: -1379813989646915986
+      polterwars_tileset_and_structures_6: -9216111821556044611
+      polterwars_tileset_and_structures_7: -748668598377330763
+      polterwars_tileset_and_structures_8: 1483094789318703672
+      polterwars_tileset_and_structures_9: -4505734322467781211
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

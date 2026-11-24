@@ -55,6 +55,7 @@ public class Tile : MonoBehaviour
         //print("Tipo de terreno: " + terrainType);
         TerrainData data = database[terrainType];
         renderer.color = isOffset ? data.color_offset : data.color_normal;
+        renderer.sortingOrder = -1;
     }
 
     void OnMouseEnter()

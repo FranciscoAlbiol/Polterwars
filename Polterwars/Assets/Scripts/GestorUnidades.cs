@@ -14,7 +14,7 @@ public class GestorUnidades : MonoBehaviour
     private void Start()
     {
         CrearUnidad(UnitType.Peon, new Vector2Int(1, 1), TurnType.Player);
-        CrearUnidad(UnitType.Barquito, new Vector2Int(3, 1), TurnType.Player);
+        CrearUnidad(UnitType.Barquito, new Vector2Int(3, 6), TurnType.Player);
         CrearUnidad(UnitType.Explorador, new Vector2Int(5, 1), TurnType.Player);
         
         Debug.Log("Unidades creadas: " + unidades.Count);

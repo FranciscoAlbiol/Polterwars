@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CarpaFeria
   m_EditorClassIdentifier: Assembly-CSharp::FabricaData
   tipo: 1
-  imagen: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  imagen: {fileID: 4331714041537508524, guid: d91f012427534d044908bdb9ea81fd4e, type: 3}
   coste_almas: 500
   coste_material: 100
   material: 0
